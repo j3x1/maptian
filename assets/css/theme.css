@@ -1,0 +1,21 @@
+span.right {
+  float: right;
+  position: relative;
+  right: -130px;
+}
+span.right img {
+  float: right;
+  margin-left: -70px;
+  clear: left;
+  transform: none;
+  left: 0;
+}
+
+span.right span.caption {
+  width: 40%;
+  top: 100%;
+  left: 60%;
+  position: absolute;
+  font-size: 0.6em;
+  line-height: 1.5em;
+}
