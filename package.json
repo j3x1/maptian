@@ -1,0 +1,34 @@
+{
+    "name": "maptian design",
+    "description": "Custom blog theme created for Jia Jin's personal blog",
+    "demo": "https://lowjiajin.com",
+    "version": "0.0.1",
+    "engines": {
+        "ghost": ">=0.9.0 <1.0.0"
+    },
+    "license": "MIT",
+    "screenshots": {
+        "desktop": "assets/screenshot-desktop.jpg",
+        "mobile": "assets/screenshot-mobile.jpg"
+    },
+    "author": {
+        "name": "Chai Jia Xun, Low Jia Jin",
+        "email": "admin@pixelrife.com",
+        "url": "https://www.pixelrife.com"
+    },
+    "gpm": {
+        "type": "theme",
+        "categories": [
+            "Minimal",
+            "Personal Blogs"
+        ]
+    },
+    "keywords": [
+        "ghost",
+        "theme"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/TryGhost/Casper.git"
+    }
+}
