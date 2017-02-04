@@ -2083,8 +2083,9 @@ body.page-template .post-title {
 
     .post-content img {
         padding: 0;
-        width: 126%;
+        width: 126%; /* expand with to image + margins */
         min-width: 0;
+        max-width: 125%; /* fallback when calc doesn't work */
     }
 
     .post-meta {

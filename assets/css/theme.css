@@ -1,3 +1,54 @@
+.flex {
+  display: flex;
+}
+/****************************************
+ Post header
+****************************************/
+
+
+
+.post-tags a {
+  background: #000;
+  color: #fff;
+  padding: 5px;
+}
+
+header.post-header {
+  position: relative;
+}
+
+header.post-header .vline {
+  position:absolute;
+  background: #222;
+  top:8px;
+  bottom:-7px;
+  left: -30px;
+  width: 1px;
+}
+
+
+nav.header-nav {
+  display:none;
+  position: absolute;
+  width: 200px;
+  left: -200px;
+  padding: 10px;
+}
+nav.header-nav a {
+  display: block;
+}
+
+@media screen and (min-width: 1200px) {
+  .main-header nav{
+    display:none;
+  }
+  header.post-header h1 {
+    width: 120%;
+  }
+  nav.header-nav {
+    display:block;
+  }
+}
 
 /****************************************
  Special side floating images
@@ -120,7 +171,7 @@ figcaption {
 .post p:not(.full) {
   width:80%;
   max-width: 710px;
-  margin: auto;
+  margin: 1em auto;
 }
 
 .post footer {

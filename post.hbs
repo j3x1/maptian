@@ -17,13 +17,23 @@
 
 <main class="content" role="main">
     <article class="{{post_class}}">
-
         <header class="post-header">
-            <h1 class="post-title">{{title}}</h1>
+            <nav class="header-nav">
+              <a class="logo" href=""><img src="http://placehold.it/50x50"></a>
+              <a class="link" href="#">BLOG</a>
+              <a class="link" href="#">ABOUT</a>
+              <a class="link" href="#">CONTACT</a>
+            </nav>
+            <div class="vline"></div>
             <section class="post-meta">
-                <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time> {{tags prefix=" on "}}
+                <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="DD MMMM YYYY"}}</time>
+            </section>
+            <h1 class="post-title">{{title}}</h1>
+            <section class="post-meta post-tags">
+                {{tags separator=" "}}
             </section>
         </header>
+
 
         <section class="post-content">
             {{content}}
