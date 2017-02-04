@@ -37,6 +37,7 @@ header.post-header h1.post-title {
   font-size: 63px;
   font-weight: normal;
   color: #fff;
+  margin-top: 0px;
   margin-bottom: 20px;
 }
 
@@ -62,6 +63,14 @@ header.post-header .vline {
 
 }
 
+.post-content h1 {
+  font-family: 'Roboto Condensed', serif;
+  font-size: 50px;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 0;
+
+}
 .post-content p {
   font-family: 'Roboto Slab', serif;
   font-size: 22px;
