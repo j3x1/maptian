@@ -57,7 +57,9 @@ nav.header-nav {
 }
 nav.header-nav a {
   display: block;
+  text-decoration: none;
 }
+
 
 @media screen and (min-width: 1200px) {
   .main-header nav{
@@ -113,14 +115,15 @@ author {
   font-size: 0.95em;
 }
 
-.author-container .vline {
-  position:absolute;
-  width: 1px;
-  top: 0;
-  right: 29px;
-  bottom: 0;
-  background: #222;
+.author-container hr {
+  margin: 1.5em 0;
 }
+
+
+
+/*span.overflow {
+  position:relative;
+}*/
 
 @media screen and (max-width: 500px) {
   img {
@@ -147,6 +150,19 @@ author {
 
   .author-container .time {
     text-align: right;
+  }
+
+  .author-container .vline {
+    position:absolute;
+    width: 1px;
+    top: 0;
+    right: 29px;
+    bottom: 0;
+    background: #222;
+  }
+
+  .author-container hr {
+    display: none;
   }
 
   span.right {
@@ -214,21 +230,27 @@ author {
   }
 
   span.overflow img {
-    width: 150%;
+    width: 155%;
     max-width: none;
   }
 
+  span.overflow {
+    position:relative;
+  }
+
   span.overflow.right-caption figcaption {
-    width: 12%;
-    left: 83%;
+    width: 170px;
+    right: -195px;
+    padding-top: 27px;
     position: absolute;
     font-size: 0.6em;
     line-height: 1.5em;
     text-align: left;
   }
   span.overflow.left-caption figcaption {
-    width: 12%;
-    right: 83%;
+    width: 170px;
+    left: -195px;
+    padding-top: 27px;
     position: absolute;
     font-size: 0.6em;
     line-height: 1.5em;

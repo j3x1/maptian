@@ -1,3 +1,7 @@
+# Maptian Design
+
+Custom two part blog theme created for Jia Jin's personal blog
+
 # Maptian Code
 
 Custom two part blog theme created for Jia Xun's personal blog

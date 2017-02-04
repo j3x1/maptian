@@ -7,8 +7,18 @@
  Post header
 ****************************************/
 body {
+  font-family: 'Roboto Slab', serif;
   color: #e0e0e0;
 }
+
+a {
+  font-family: 'anonymous_proregular';
+  color: #e0e0e0;
+}
+a:hover {
+  color: #558b2f;
+}
+
 *::selection {
   background: #DCEDC8; /* WebKit/Blink Browsers */
 }
@@ -19,6 +29,8 @@ body {
 .site-wrapper {
   background: #333333;
 }
+
+
 
 header.post-header h1.post-title {
   font-family: 'anonymous_proregular';
@@ -61,11 +73,6 @@ header.post-header .vline {
 *****************************************/
 
 .author-container .vline {
-  position:absolute;
-  width: 1px;
-  top: 0;
-  right: 29px;
-  bottom: 0;
   background: #fff;
 }
 
