@@ -1,6 +1,6 @@
 {
-    "name": "maptian code",
-    "description": "Custom blog theme created for Jia Xun's personal blog",
+    "name": "maptian",
+    "description": "Custom blog theme created for Jia Xun and Jia Jin's personal blog",
     "demo": "https://chaijiaxun.com",
     "version": "0.0.1",
     "engines": {
@@ -29,6 +29,6 @@
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/TryGhost/Casper.git"
+        "url": "https://github.com/cjx3711/blog-design"
     }
 }
