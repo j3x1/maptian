@@ -75,14 +75,44 @@ nav.header-nav a {
  Special side floating things
 *****************************************/
 
+
+
+
+
+figcaption {
+  font-size: 0.6em;
+  line-height: 1.5em;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
 author {
   position: relative;
 }
 .author-container {
-  position:absolute;
-  width: 200px;
-  left: -200px;
+  margin-bottom: 20px;
 }
+.author-container img {
+  height: auto;
+  padding: 0.6em 0;
+  position: relative;
+  left: auto;
+  right: 0;
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+.author-container .name-container {
+  font-style: italic;
+}
+.author-container .name-container .name {
+  font-style: normal;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.95em;
+}
+
 .author-container .vline {
   position:absolute;
   width: 1px;
@@ -92,31 +122,48 @@ author {
   background: #222;
 }
 
-figcaption {
-  font-size: 0.6em;
-  line-height: 1.5em;
-  margin-bottom: 15px;
-  text-align: center;
-}
-
 @media screen and (max-width: 500px) {
   img {
     width: 100%;
   }
 }
-@media screen and (min-width: 1100px) {
+@media screen and (min-width: 1200px) {
+  author {
+    position: relative;
+  }
+  .author-container {
+    position:absolute;
+    width: 220px;
+    left: -220px;
+    padding-right: 50px;
+    box-sizing: border-box;
+    text-align: right;
+    text-align: -webkit-right;
+  }
+
+  .author-container .name-container {
+    text-align: right;
+  }
+
+  .author-container .time {
+    text-align: right;
+  }
+
   span.right {
     float: right;
     position: relative;
-    right: -130px;
+    right: -192px;
     margin: 0;
   }
 
   span.right img {
     float: right;
-    margin-left: -70px;
+    margin-left: -145px;
     clear: left;
     transform: none;
+    padding: 40px 0;
+    width: 560px;
+    min-width: 560px;
     left: 0;
   }
 
@@ -133,15 +180,18 @@ figcaption {
   span.left {
     float: left;
     position: relative;
-    left: -130px;
+    left: -192px;
     margin: 0;
   }
 
   span.left img {
     float: left;
-    margin-right: -70px;
+    margin-right: -145px;
     clear: right;
     transform: none;
+    padding: 40px 0;
+    width: 560px;
+    min-width: 560px;
     left: 0;
   }
 

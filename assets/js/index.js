@@ -56,7 +56,8 @@
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
         authorDom += '<img src="http://placehold.it/80x80" />';
-        authorDom += 'Chai Jia Xun';
+        authorDom += '<div class="name-container">by <span class="name">Chai Jia Xun</span></div>';
+        authorDom += '<div class="time">a 15min read</div>';
         authorDom += '<div class="vline"><div>';
         authorDom += '</div>';
         $(".post-content author").each(
