@@ -1,7 +1,7 @@
 {
-    "name": "maptian design",
-    "description": "Custom blog theme created for Jia Jin's personal blog",
-    "demo": "https://lowjiajin.com",
+    "name": "maptian code",
+    "description": "Custom blog theme created for Jia Xun's personal blog",
+    "demo": "https://chaijiaxun.com",
     "version": "0.0.1",
     "engines": {
         "ghost": ">=0.9.0 <1.0.0"
