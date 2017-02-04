@@ -1,0 +1,100 @@
+/* ==========================================================================
+   CSS specific to the design of the Design version of the site.
+   ========================================================================== */
+
+/*
+/****************************************
+ Post header
+****************************************/
+body {
+  font-family: 'Ideal Sans Light';
+}
+
+a {
+
+}
+a:hover {
+
+}
+
+*::selection {
+}
+*::-moz-selection {
+}
+
+.site-wrapper {
+}
+
+
+header.post-header h1.post-title {
+  font-family: 'Feijoa Display';
+  font-size: 72px;
+  font-weight: normal;
+  margin-bottom: 20px;
+}
+
+header.post-header .vline {
+}
+
+nav.header-nav {
+  font-family: 'Ideal Sans Light', sans-serif;
+  font-size: 14px;
+}
+.post-date {
+  font-family: 'Ideal Sans Light', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.post-tags a {
+  background: #363636;
+}
+
+.post-tags a:hover {
+  background: #777;
+}
+
+.post h1 {
+  font-family: 'Feijoa Display';
+  font-size: 50px;
+  font-weight: normal;
+  margin-bottom: 20px;
+  margin-top: 0px;
+}
+.post-content p {
+  font-family: 'Ideal Sans Light', sans-serif;
+  font-size: 20px;
+}
+
+
+/****************************************
+ Special side floating things
+*****************************************/
+
+figcaption {
+  font-family: 'Ideal Sans Light';
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.1em;
+  font-size: 0.7em;
+  color: #000;
+}
+
+.author-container {
+  font-size: 14px;
+}
+.author-container .vline {
+}
+
+.author-container .name-container {
+  font-family: 'Ideal Sans Extra Light';
+  font-style: italic;
+
+}
+
+.author-container .time {
+  font-family: 'Ideal Sans Light';
+  font-weight: 300;
+  font-style: italic;
+  line-height: 0;
+}
