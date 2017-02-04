@@ -20,6 +20,31 @@
             $("body").toggleClass("nav-opened nav-closed");
         });
 
+        // Adds captions to the images from the alt text
+        $(".post-content span.right, .post-content span.left").each(
+        function() {
+            var $image = $(this).find('img');
+            if ( $image.length == 0 ) {
+              return;
+            }
+            $image.addClass('image');
+            // Let's put a caption if there is one
+            if ($image.attr("alt")) {
+                $image.after(
+                    '<figcaption>' +
+                    $image.attr(
+                        "alt") +
+                    '</figcaption>'
+                );
+            }
+        });
+
+        // Adds full class to p tags containing full images
+        $(".post-content p span.full").each(
+          function() {
+            $(this).parent().addClass('full');
+          }
+        );
     });
 
     // Arctic Scroll by Paul Adam Davis
