@@ -270,21 +270,40 @@ author {
   max-width: none;
 }
 
+.post h1,
+.post h2,
+.post h3,
+.post h4,
+.post p:not(.full),
+.post ol,
+.post ul,
+.post pre {
+  width:80%;
+  max-width: 710px;
+  margin: 1em auto;
+}
+
+ol ol, ul ul, ul ol, ol ul {
+  padding-left: 0em;
+}
+.post ul ul {
+  margin: 0em auto;
+}
+.post ul li, .post ol li{
+  margin: 0;
+}
+.post code {
+  background: transparent;
+}
+.post pre {
+  background-color: #222;
+  line-height: 1;
+}
+
 .post header {
   width:80%;
   max-width: 710px;
   margin: auto;
-}
-
-.post h1 {
-  width:80%;
-  max-width: 710px;
-  margin: 1em auto;
-}
-.post p:not(.full) {
-  width:80%;
-  max-width: 710px;
-  margin: 1em auto;
 }
 
 .post footer {

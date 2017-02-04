@@ -54,13 +54,22 @@ nav.header-nav {
   background: #777;
 }
 
-.post h1 {
+.post h1, .post h2, .post h3, .post h4  {
   font-family: 'Feijoa Display';
-  font-size: 50px;
   font-weight: normal;
+  margin-top: 0;
   margin-bottom: 20px;
 }
-.post-content p {
+.post h1 {
+  font-size: 50px;
+}
+.post h2 {
+  font-size: 40px;
+}
+.post h3 {
+  font-size: 30px;
+}
+.post p {
   font-family: 'Ideal Sans Light', sans-serif;
   font-size: 20px;
 }
