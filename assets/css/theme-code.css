@@ -54,3 +54,17 @@ header.post-header .vline {
   font-family: 'Roboto Slab', serif;
   font-size: 22px;
 }
+
+
+/****************************************
+ Special side floating things
+*****************************************/
+
+.author-container .vline {
+  position:absolute;
+  width: 1px;
+  top: 0;
+  right: 29px;
+  bottom: 0;
+  background: #fff;
+}

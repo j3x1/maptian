@@ -52,6 +52,18 @@
             $(this).parent().addClass('full');
           }
         );
+
+        // Adds the author content where the tag is
+        var authorDom = '<div class="author-container">';
+        authorDom += '<img src="http://placehold.it/80x80" />';
+        authorDom += 'Chai Jia Xun';
+        authorDom += '<div class="vline"><div>';
+        authorDom += '</div>';
+        $(".post-content author").each(
+          function() {
+            $(this).append(authorDom);
+          }
+        );
     });
 
     // Arctic Scroll by Paul Adam Davis

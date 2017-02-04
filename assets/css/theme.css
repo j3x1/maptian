@@ -72,9 +72,25 @@ nav.header-nav a {
 }
 
 /****************************************
- Special side floating images
+ Special side floating things
 *****************************************/
 
+author {
+  position: relative;
+}
+.author-container {
+  position:absolute;
+  width: 200px;
+  left: -200px;
+}
+.author-container .vline {
+  position:absolute;
+  width: 1px;
+  top: 0;
+  right: 29px;
+  bottom: 0;
+  background: #222;
+}
 
 figcaption {
   font-size: 0.6em;
