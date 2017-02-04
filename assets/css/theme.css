@@ -1,6 +1,15 @@
 .flex {
   display: flex;
 }
+.noselect, img {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
 /****************************************
  Post header
 ****************************************/
@@ -10,8 +19,20 @@
 .post-tags a {
   background: #000;
   color: #fff;
-  padding: 5px;
+  padding: 5px 10px;
+  margin: 0 6px 0 0;
+  text-transform: uppercase;
+  font-size: 15px;
+  border-radius: 5px;
+  -webkit-transition: background 200ms; /* Safari */
+  transition: background 200ms;
 }
+
+.post-tags a:hover {
+  text-decoration: none;
+  background: #555;
+}
+
 
 header.post-header {
   position: relative;
