@@ -66,12 +66,40 @@ figcaption {
     line-height: 1.5em;
     text-align: right;
   }
+
+  span.full img {
+    width: 100%;
+  }
+
+  span.fit img {
+    width: 100%;
+  }
+
+  span.overflow img {
+    width: 150%;
+    max-width: none;
+  }
+
+  span.overflow.right-caption figcaption {
+    width: 12%;
+    left: 83%;
+    position: absolute;
+    font-size: 0.6em;
+    line-height: 1.5em;
+    text-align: left;
+  }
+  span.overflow.left-caption figcaption {
+    width: 12%;
+    right: 83%;
+    position: absolute;
+    font-size: 0.6em;
+    line-height: 1.5em;
+    text-align: left;
+  }
+
 }
 
 
-span.full img {
-  width: 100%;
-}
 
 /*******************************************
  Setting post width to 100% and post contents

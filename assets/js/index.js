@@ -21,7 +21,14 @@
         });
 
         // Adds captions to the images from the alt text
-        $(".post-content span.right, .post-content span.left").each(
+        var selectors = [
+          ".post-content span.right",
+          ".post-content span.left",
+          ".post-content span.overflow",
+          ".post-content span.fit",
+          ".post-content span.full"
+        ]
+        $(selectors.join(', ')).each(
         function() {
             var $image = $(this).find('img');
             if ( $image.length == 0 ) {
