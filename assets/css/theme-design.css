@@ -7,13 +7,17 @@
  Post header
 ****************************************/
 body {
-  font-family: 'Ideal Sans Light';
+  font-family: 'Ideal Sans';
+  font-weight: 300;
 }
 
-a {
-
+.post-tags a {
+  font-family: 'Ideal Sans', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  padding-top: 6px;
 }
-a:hover {
+.post-tags a:hover {
 
 }
 
@@ -28,22 +32,25 @@ a:hover {
 
 header.post-header h1.post-title {
   font-family: 'Feijoa Display';
-  font-size: 72px;
+  font-size: 80px;
   font-weight: normal;
-  margin: 0 0 20px 0;
+  margin: 11px 0 11px 0;
 }
 
 header.post-header .vline {
 }
 
 nav.header-nav {
-  font-family: 'Ideal Sans Light', sans-serif;
+  font-family: 'Ideal Sans', sans-serif;
+  font-weight: 300;
   font-size: 14px;
 }
 .post-date {
-  font-family: 'Ideal Sans Light', sans-serif;
+  font-family: 'Ideal Sans', sans-serif;
   font-weight: 300;
   font-size: 20px;
+  font-variant: small-caps;
+  text-transform: lowercase;
 }
 
 .post-tags a {
@@ -60,6 +67,11 @@ nav.header-nav {
   margin-top: 0;
   margin-bottom: 20px;
 }
+.post h1 em, .post h2 em, .post h3 em, .post h4 em  {
+  font-family: 'Feijoa Medium';
+  font-weight: 500;
+  font-style: italic;
+}
 .post h1 {
   font-size: 50px;
 }
@@ -70,8 +82,40 @@ nav.header-nav {
   font-size: 30px;
 }
 .post p {
-  font-family: 'Ideal Sans Light', sans-serif;
-  font-size: 20px;
+  font-family: 'Ideal Sans', sans-serif;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 1.5em;
+
+}
+
+.end-of-transmission {
+  margin-left: 10px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .post-date {
+    font-size: 14px;
+  }
+  header.post-header h1.post-title {
+    font-size: 40px;
+  }
+  .post-tags a {
+    font-size: 14px;
+  }
+  .post h1 {
+    font-size: 30px;
+  }
+  .post h2 {
+    font-size: 26px;
+  }
+  .post h3 {
+    font-size: 22px;
+  }
+  .post p {
+    font-size: 16px;
+  }
 }
 
 
@@ -80,29 +124,58 @@ nav.header-nav {
 *****************************************/
 
 figcaption {
-  font-family: 'Ideal Sans Light';
-  font-weight: 300;
+  font-family: 'Feijoa Medium';
+  font-weight: 500;
   font-style: italic;
-  line-height: 1.1em;
+  line-height: 1.3em;
   font-size: 0.7em;
   color: #000;
 }
 
+@media screen and (min-width: 1400px) {
+  span.overflow.right-caption figcaption {
+    width: 192px;
+    right: -254px;
+    padding-top: 60px;
+  }
+  span.overflow.left-caption figcaption {
+    width: 192px;
+    left: -254px;
+    padding-top: 60px;
+  }
+}
+
+
 .author-container {
   font-size: 14px;
 }
+.author-container img {
+  right: -14px;
+}
+
 .author-container .vline {
 }
 
 .author-container .name-container {
-  font-family: 'Ideal Sans Extra Light';
+  font-family: 'Ideal Sans';
   font-style: italic;
+  font-weight: 200;
+  font-size: 20px;
+}
 
+.author-container .name-container .name {
+  font-style: normal;
+  font-weight: bold;
+  text-transform: lowercase;;
+  font-size: 0.95em;
+  font-variant: small-caps;
 }
 
 .author-container .time {
-  font-family: 'Ideal Sans Light';
-  font-weight: 300;
+  font-family: 'Ideal Sans';
+  font-weight: 200;
   font-style: italic;
-  line-height: 0;
+  line-height: 0.7em;
+  font-size: 20px;
+
 }

@@ -406,3 +406,7 @@ ol ol, ul ul, ul ol, ol ul {
   max-width: 800px;
   margin: 3.5em auto 0;
 }
+
+.post video {
+  margin-bottom: 2.5em;
+}

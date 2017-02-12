@@ -65,6 +65,17 @@
           }
         );
 
+        $(".post-content p").each(
+          function() {
+            if ($(this).text() == "") {
+              console.log("Empty paragraph");
+              $(this).remove();
+            }
+          }
+        );
+
+
+        $(".post-content p").last().append("<span class='end-of-transmission'>♦</span>");
 
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
