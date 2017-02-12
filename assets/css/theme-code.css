@@ -38,6 +38,19 @@ figcaption {
   font-size: 16px;
 }
 
+@media screen and (min-width: 1400px) {
+  span.overflow.right-caption figcaption {
+    width: 192px;
+    right: -254px;
+    padding-top: 55px;
+  }
+  span.overflow.left-caption figcaption {
+    width: 192px;
+    left: -254px;
+    padding-top: 55px;
+  }
+}
+
 header.post-header h1.post-title {
   font-family: 'anonymous_proregular';
   font-size: 63px;
@@ -61,6 +74,7 @@ header.post-header .vline {
   background: #999999;
   color: #fff;
   font-family: 'Roboto Condensed', serif;
+  font-size: 
 }
 
 .post-tags a:hover {
@@ -69,7 +83,7 @@ header.post-header .vline {
 
 }
 
-.post h1, .post h2, .post h3, .post h4 {
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
   font-family: 'Roboto Condensed', serif;
   color: #fff;
   margin-bottom: 20px;
@@ -89,6 +103,33 @@ header.post-header .vline {
   font-size: 22px;
   line-height: 1.5em;
 }
+
+@media screen and (max-width: 500px) {
+  .post-date {
+    font-size: 14px;
+  }
+  header.post-header h1.post-title {
+    font-size: 32px;
+  }
+  .post-tags a {
+    font-size: 12px;
+  }
+  .post h1 {
+    font-size: 28px;
+  }
+  .post h2 {
+    font-size: 24px;
+  }
+  .post h3 {
+    font-size: 20px;
+  }
+  .post p {
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+}
+
 
 
 /****************************************

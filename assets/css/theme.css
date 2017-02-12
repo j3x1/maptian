@@ -50,6 +50,9 @@ header.post-header {
   position: relative;
 }
 
+header.post-header h1.post-title {
+  width:100%;
+}
 header.post-header .vline {
   position:absolute;
   top:3px;
@@ -57,6 +60,7 @@ header.post-header .vline {
   left: -42px;
   border-left: 1px solid;
   border-left-color: #222;
+  display: none;
 }
 
 
@@ -73,7 +77,10 @@ nav.header-nav a {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1400px) {
+  header.post-header .vline {
+    display: block;
+  }
   .main-header nav{
     display:none;
   }
@@ -103,8 +110,9 @@ figcaption {
 author {
   position: relative;
 }
+
 .author-container {
-  margin-bottom: 20px;
+  margin-bottom: 38px;
 }
 .author-container img {
   height: auto;
@@ -115,6 +123,7 @@ author {
   -webkit-transform: none;
   -ms-transform: none;
   transform: none;
+  width: 120px;
 }
 
 .author-container .name-container {
@@ -133,16 +142,6 @@ author {
 
 
 
-/*span.overflow {
-  position:relative;
-}*/
-
-@media screen and (max-width: 500px) {
-  img {
-    width: 100%;
-  }
-}
-
 .post p.full {
   margin: 2.5em 0;
 }
@@ -153,7 +152,44 @@ author {
   margin: 2.5em 0;
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 500px) {
+  img {
+    width: 126%;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1399px) {
+  .author-container {
+    margin-bottom: 38px;
+    margin-top: 47px;
+  }
+
+  span.left img {
+    margin-top: 2.5em;
+    width: 540px;
+  }
+  span.left figcaption {
+    margin-bottom: 2.5em;
+  }
+
+  span.right img {
+    margin-top: 2.5em;
+    width: 540px;
+  }
+  span.right figcaption {
+    margin-bottom: 2.5em;
+  }
+
+  span.fit img {
+    width: 100%;
+  }
+
+  span.overflow img {
+    width: 100%;
+  }
+
+}
+@media screen and (min-width: 1400px) {
   author {
     position: relative;
   }
@@ -262,7 +298,7 @@ author {
 
 
   span.overflow img {
-    width: 155%;
+    width: 164%;
     max-width: none;
   }
 
@@ -307,7 +343,7 @@ author {
 .post ol,
 .post ul,
 .post pre {
-  width:80%;
+  width:90%;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
@@ -333,13 +369,13 @@ ol ol, ul ul, ul ol, ol ul {
 }
 
 .post header {
-  width:80%;
+  width:90%;
   max-width: 800px;
   margin: auto;
 }
 
 .post footer {
-  width:80%;
+  width:90%;
   max-width: 800px;
   margin: 3.5em auto 0;
 }

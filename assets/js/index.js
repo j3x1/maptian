@@ -58,7 +58,7 @@
             $(this).parent().addClass('fit');
           }
         );
-        
+
         $(".post-content p span.overflow").each(
           function() {
             $(this).parent().addClass('overflow');
@@ -67,11 +67,11 @@
 
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
-        authorDom += '<img src="http://placehold.it/80x80" />';
+        authorDom += '<hr class="hline">';
+        authorDom += '<img src="/assets/jx-line.png" />';
         authorDom += '<div class="name-container">by <span class="name">Chai Jia Xun</span></div>';
         authorDom += '<div class="time">a <span class="minutes">15</span>min read</div>';
         authorDom += '<div class="vline"></div>';
-        authorDom += '<hr class="hline">';
         authorDom += '</div>';
         $(".post-content author").each(
           function() {
