@@ -68,7 +68,7 @@
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
         authorDom += '<hr class="hline">';
-        authorDom += '<img src="/assets/jx-line.png" />';
+        authorDom += '<img src="/jiaxun/assets/jx-line.png" />';
         authorDom += '<div class="name-container">by <span class="name">Chai Jia Xun</span></div>';
         authorDom += '<div class="time">a <span class="minutes">15</span>min read</div>';
         authorDom += '<div class="vline"></div>';
