@@ -37,11 +37,11 @@ header.post-header h1.post-title {
   font-size: 63px;
   font-weight: normal;
   color: #fff;
-  margin-top: 0 20px 0 0;
+  margin: 0 0 21px 0;
 }
 
 header.post-header .vline {
-  background: #fff;
+  border-left-color: #fff;
 }
 
 .post-date {
@@ -54,6 +54,7 @@ header.post-header .vline {
 .post-tags a {
   background: #999999;
   color: #fff;
+  font-family: 'Roboto Condensed', serif;
 }
 
 .post-tags a:hover {
@@ -80,6 +81,7 @@ header.post-header .vline {
 .post p {
   font-family: 'Roboto Slab', serif;
   font-size: 22px;
+  line-height: 1.5em;
 }
 
 
@@ -88,7 +90,7 @@ header.post-header .vline {
 *****************************************/
 
 .author-container .vline {
-  background: #fff;
+  border-left-color: #fff;
 }
 
 .author-container .name-container {

@@ -10,6 +10,18 @@
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
 }
+
+video::-internal-media-controls-download-button {
+    display:none;
+}
+
+video::-webkit-media-controls-enclosure {
+    overflow:hidden;
+}
+
+video::-webkit-media-controls-panel {
+    width: calc(100% + 30px); /* Adjust as needed */
+}
 /****************************************
  Post header
 ****************************************/
@@ -40,11 +52,11 @@ header.post-header {
 
 header.post-header .vline {
   position:absolute;
-  background: #222;
-  top:8px;
-  bottom:-7px;
-  left: -30px;
-  width: 1px;
+  top:3px;
+  bottom:-1px;
+  left: -42px;
+  border-left: 1px solid;
+  border-left-color: #222;
 }
 
 
@@ -139,7 +151,7 @@ author {
     position:absolute;
     width: 220px;
     left: -220px;
-    padding-right: 50px;
+    padding-right: 70px;
     box-sizing: border-box;
     text-align: right;
     text-align: -webkit-right;
@@ -155,11 +167,11 @@ author {
 
   .author-container .vline {
     position:absolute;
-    width: 1px;
     top: 0;
-    right: 29px;
+    right: 40px;
     bottom: 0;
-    background: #222;
+    border-left: 1px solid;
+    border-left-color: #222;
   }
 
   .author-container hr {
@@ -279,7 +291,7 @@ author {
 .post ul,
 .post pre {
   width:80%;
-  max-width: 710px;
+  max-width: 760px;
   margin: 1em auto;
 }
 
@@ -302,12 +314,12 @@ ol ol, ul ul, ul ol, ol ul {
 
 .post header {
   width:80%;
-  max-width: 710px;
+  max-width: 760px;
   margin: auto;
 }
 
 .post footer {
   width:80%;
-  max-width: 710px;
+  max-width: 760px;
   margin: auto;
 }
