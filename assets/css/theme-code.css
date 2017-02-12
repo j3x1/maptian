@@ -2,6 +2,17 @@
    CSS specific to the design of the Code version of the site.
    ========================================================================== */
 
+
+
+/****
+PAGE STUFF
+****/
+
+.about .hi {
+  font-family: 'anonymous_proregular';
+  font-size: 40px;
+}
+
 /*
 /****************************************
  Post header
@@ -74,7 +85,7 @@ header.post-header .vline {
   background: #999999;
   color: #fff;
   font-family: 'Roboto Condensed', serif;
-  font-size: 
+  font-size:
 }
 
 .post-tags a:hover {

@@ -18,13 +18,24 @@
 <main class="content" role="main">
     <article class="{{post_class}}">
 
-        <header class="post-header">
-            <h1 class="post-title">{{title}}</h1>
-        </header>
+      <header class="post-header">
+          <nav class="header-nav noselect">
+            <a class="logo" href="/"><img src="{{asset "mono.png"}}"></a>
+            <a class="link" href="/"><i class="fa fa-caret-right" aria-hidden="true"></i> BLOG</a>
+            <a class="link" href="/about">ABOUT</a>
+            <a class="link" href="/contact">CONTACT</a>
+          </nav>
+          <div class="vline page"></div>
+          <section class="about">
+            <h1 class="hi">Hi, I'm Jia Xun</h1>
+            <img src="/jiaxun/assets/jx-about.jpg"/>
+          </section>
+      </header>
 
-        <section class="post-content">
-            {{content}}
-        </section>
+      <section class="post-content">
+          {{content}}
+      </section>
+
 
     </article>
 </main>

@@ -63,6 +63,25 @@ header.post-header .vline {
   display: none;
 }
 
+/** PAGE STUFF **/
+
+header.post-header .vline.page {
+  height:140px;
+}
+
+.about .hi {
+  font-weight: normal;
+}
+
+.about img {
+  width: 540px;
+  border-radius: 50%;
+  margin: 10px auto;
+}
+
+
+
+
 
 nav.header-nav {
   display:none;
@@ -90,6 +109,11 @@ nav.header-nav a {
   nav.header-nav {
     display:block;
   }
+}
+
+
+.post-content {
+  min-height: 400px;
 }
 
 /****************************************
