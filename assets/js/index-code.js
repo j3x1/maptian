@@ -65,6 +65,8 @@
           }
         );
 
+        $(".post-content p").last().append("<span class='blink-cursor'>_</span>");
+
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
         authorDom += '<hr class="hline">';

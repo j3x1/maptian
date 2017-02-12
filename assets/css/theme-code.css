@@ -160,3 +160,20 @@ header.post-header .vline {
   font-weight: 300;
   font-style: italic;
 }
+
+.blink-cursor {
+  animation: blink-animation 2s steps(2, start) infinite;
+  -webkit-animation: blink-animation 2s steps(2, start) infinite;
+  margin-left: 10px;
+  background: #e0e0e0;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
