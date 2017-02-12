@@ -53,6 +53,18 @@
           }
         );
 
+        $(".post-content p span.fit").each(
+          function() {
+            $(this).parent().addClass('fit');
+          }
+        );
+        
+        $(".post-content p span.overflow").each(
+          function() {
+            $(this).parent().addClass('overflow');
+          }
+        );
+
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
         authorDom += '<img src="http://placehold.it/80x80" />';

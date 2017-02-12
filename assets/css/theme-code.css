@@ -32,6 +32,12 @@ a:hover {
 
 
 
+figcaption {
+  font-family: 'Roboto Condensed', serif;
+  font-style: italic;
+  font-size: 16px;
+}
+
 header.post-header h1.post-title {
   font-family: 'anonymous_proregular';
   font-size: 63px;
