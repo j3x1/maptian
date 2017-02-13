@@ -32,7 +32,7 @@ body {
 
 header.post-header h1.post-title {
   font-family: 'Feijoa Display';
-  font-size: 80px;
+  font-size: 72px;
   font-weight: normal;
   margin: 11px 0 11px 0;
 }
@@ -84,9 +84,13 @@ nav.header-nav {
 .post p {
   font-family: 'Ideal Sans', sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 23px;
   line-height: 1.5em;
+  color: black;
+}
 
+.post ol ol, .post ul ul, .post ul ol, .post ol ul {
+  color: black;
 }
 
 .end-of-transmission {
@@ -102,7 +106,8 @@ nav.header-nav {
     font-size: 40px;
   }
   .post-tags a {
-    font-size: 14px;
+    font-size: 10px;
+    margin: 0 0 0 0;
   }
   .post h1 {
     font-size: 30px;
@@ -114,7 +119,7 @@ nav.header-nav {
     font-size: 22px;
   }
   .post p {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
@@ -129,19 +134,19 @@ figcaption {
   font-style: italic;
   line-height: 1.3em;
   font-size: 0.7em;
-  color: #000;
+  color: #777;
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1300px) {
   span.overflow.right-caption figcaption {
     width: 192px;
-    right: -254px;
-    padding-top: 60px;
+    right: -232px;
+    padding-top: 52px;
   }
   span.overflow.left-caption figcaption {
     width: 192px;
-    left: -254px;
-    padding-top: 60px;
+    left: -232px;
+    padding-top: 52px;
   }
 }
 

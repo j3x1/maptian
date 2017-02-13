@@ -49,7 +49,7 @@ figcaption {
   font-size: 16px;
 }
 
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 1300px) {
   span.overflow.right-caption figcaption {
     width: 192px;
     right: -254px;
@@ -117,13 +117,14 @@ header.post-header .vline {
 
 @media screen and (max-width: 500px) {
   .post-date {
-    font-size: 14px;
+    font-size: 13px;
   }
   header.post-header h1.post-title {
-    font-size: 32px;
+    font-size: 31px;
   }
   .post-tags a {
-    font-size: 12px;
+    font-size: 11px;
+    margin: 0 0 0 0;
   }
   .post h1 {
     font-size: 28px;
