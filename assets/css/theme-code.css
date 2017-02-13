@@ -173,6 +173,12 @@ header.post-header .vline {
   }
 }
 
+@media screen and (min-width: 501px) and (max-width: 1299px) {
+  header.post-header h1.post-title {
+    font-size: 55px;
+  }
+}
+
 @media screen and (min-width: 1300px) {
   span.overflow.right-caption figcaption {
     width: 192px;
