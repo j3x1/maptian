@@ -195,6 +195,10 @@ span.right figcaption {
   span.full img {
     width: 100%;
   }
+
+  .author-container img {
+    width: 70px;
+  }
 }
 
 @media screen and (max-width: 1299px) {

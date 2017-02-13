@@ -98,32 +98,6 @@ nav.header-nav {
 }
 
 
-@media screen and (max-width: 500px) {
-  .post-date {
-    font-size: 14px;
-  }
-  header.post-header h1.post-title {
-    font-size: 40px;
-  }
-  .post-tags a {
-    font-size: 10px;
-    margin: 0 0 0 0;
-  }
-  .post h1 {
-    font-size: 30px;
-  }
-  .post h2 {
-    font-size: 26px;
-  }
-  .post h3 {
-    font-size: 22px;
-  }
-  .post p {
-    font-size: 17px;
-  }
-}
-
-
 /****************************************
  Special side floating things
 *****************************************/
@@ -135,19 +109,6 @@ figcaption {
   line-height: 1.3em;
   font-size: 0.7em;
   color: #777;
-}
-
-@media screen and (min-width: 1300px) {
-  span.overflow.right-caption figcaption {
-    width: 192px;
-    right: -232px;
-    padding-top: 52px;
-  }
-  span.overflow.left-caption figcaption {
-    width: 192px;
-    left: -232px;
-    padding-top: 52px;
-  }
 }
 
 
@@ -182,5 +143,49 @@ figcaption {
   font-style: italic;
   line-height: 0.7em;
   font-size: 20px;
+}
 
+@media screen and (min-width: 1300px) {
+  span.overflow.right-caption figcaption {
+    width: 192px;
+    right: -232px;
+    padding-top: 52px;
+  }
+  span.overflow.left-caption figcaption {
+    width: 192px;
+    left: -232px;
+    padding-top: 52px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .post-date {
+    font-size: 14px;
+  }
+  header.post-header h1.post-title {
+    font-size: 40px;
+  }
+  .post-tags a {
+    font-size: 10px;
+    margin: 0 0 0 0;
+  }
+  .post h1 {
+    font-size: 30px;
+  }
+  .post h2 {
+    font-size: 26px;
+  }
+  .post h3 {
+    font-size: 22px;
+  }
+  .post p {
+    font-size: 18px;
+  }
+  .author-container .name-container {
+    font-size: 18px;
+  }
+
+  .author-container .time {
+    font-size: 18px;
+  }
 }
