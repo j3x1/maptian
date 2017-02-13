@@ -49,19 +49,6 @@ figcaption {
   font-size: 16px;
 }
 
-@media screen and (min-width: 1400px) {
-  span.overflow.right-caption figcaption {
-    width: 192px;
-    right: -254px;
-    padding-top: 55px;
-  }
-  span.overflow.left-caption figcaption {
-    width: 192px;
-    left: -254px;
-    padding-top: 55px;
-  }
-}
-
 header.post-header h1.post-title {
   font-family: 'anonymous_proregular';
   font-size: 63px;
@@ -115,32 +102,6 @@ header.post-header .vline {
   line-height: 1.5em;
 }
 
-@media screen and (max-width: 500px) {
-  .post-date {
-    font-size: 14px;
-  }
-  header.post-header h1.post-title {
-    font-size: 32px;
-  }
-  .post-tags a {
-    font-size: 12px;
-  }
-  .post h1 {
-    font-size: 28px;
-  }
-  .post h2 {
-    font-size: 24px;
-  }
-  .post h3 {
-    font-size: 20px;
-  }
-  .post p {
-    font-size: 16px;
-    line-height: 1.5em;
-  }
-}
-
-
 
 /****************************************
  Special side floating things
@@ -174,5 +135,53 @@ header.post-header .vline {
 @-webkit-keyframes blink-animation {
   to {
     visibility: hidden;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  .post-date {
+    font-size: 13px;
+  }
+  header.post-header h1.post-title {
+    font-size: 31px;
+  }
+  .post-tags a {
+    font-size: 11px;
+    margin: 0 0 0 0;
+  }
+  .post h1 {
+    font-size: 28px;
+  }
+  .post h2 {
+    font-size: 24px;
+  }
+  .post h3 {
+    font-size: 20px;
+  }
+  .post p {
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+
+  .author-container .name-container {
+    font-size: 18px;
+  }
+
+  .author-container .time {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  span.overflow.right-caption figcaption {
+    width: 192px;
+    right: -254px;
+    padding-top: 55px;
+  }
+  span.overflow.left-caption figcaption {
+    width: 192px;
+    left: -254px;
+    padding-top: 55px;
   }
 }

@@ -32,7 +32,7 @@ body {
 
 header.post-header h1.post-title {
   font-family: 'Feijoa Display';
-  font-size: 80px;
+  font-size: 72px;
   font-weight: normal;
   margin: 11px 0 11px 0;
 }
@@ -84,38 +84,17 @@ nav.header-nav {
 .post p {
   font-family: 'Ideal Sans', sans-serif;
   font-weight: 300;
-  font-size: 24px;
+  font-size: 23px;
   line-height: 1.5em;
+  color: black;
+}
 
+.post ol ol, .post ul ul, .post ul ol, .post ol ul {
+  color: black;
 }
 
 .end-of-transmission {
   margin-left: 10px;
-}
-
-
-@media screen and (max-width: 500px) {
-  .post-date {
-    font-size: 14px;
-  }
-  header.post-header h1.post-title {
-    font-size: 40px;
-  }
-  .post-tags a {
-    font-size: 14px;
-  }
-  .post h1 {
-    font-size: 30px;
-  }
-  .post h2 {
-    font-size: 26px;
-  }
-  .post h3 {
-    font-size: 22px;
-  }
-  .post p {
-    font-size: 16px;
-  }
 }
 
 
@@ -129,20 +108,7 @@ figcaption {
   font-style: italic;
   line-height: 1.3em;
   font-size: 0.7em;
-  color: #000;
-}
-
-@media screen and (min-width: 1400px) {
-  span.overflow.right-caption figcaption {
-    width: 192px;
-    right: -254px;
-    padding-top: 60px;
-  }
-  span.overflow.left-caption figcaption {
-    width: 192px;
-    left: -254px;
-    padding-top: 60px;
-  }
+  color: #777;
 }
 
 
@@ -177,5 +143,49 @@ figcaption {
   font-style: italic;
   line-height: 0.7em;
   font-size: 20px;
+}
 
+@media screen and (min-width: 1300px) {
+  span.overflow.right-caption figcaption {
+    width: 192px;
+    right: -232px;
+    padding-top: 52px;
+  }
+  span.overflow.left-caption figcaption {
+    width: 192px;
+    left: -232px;
+    padding-top: 52px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .post-date {
+    font-size: 14px;
+  }
+  header.post-header h1.post-title {
+    font-size: 40px;
+  }
+  .post-tags a {
+    font-size: 10px;
+    margin: 0 0 0 0;
+  }
+  .post h1 {
+    font-size: 30px;
+  }
+  .post h2 {
+    font-size: 26px;
+  }
+  .post h3 {
+    font-size: 22px;
+  }
+  .post p {
+    font-size: 18px;
+  }
+  .author-container .name-container {
+    font-size: 18px;
+  }
+
+  .author-container .time {
+    font-size: 18px;
+  }
 }
