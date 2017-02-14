@@ -121,6 +121,23 @@ header.post-header .vline {
   font-style: italic;
 }
 
+span.right.small {
+  right: 0;
+}
+span.right.small img {
+  width: auto;
+  min-width: auto;
+  margin-left: 0;
+}
+span.left.small {
+  left: 0;
+}
+span.left.small img {
+  width: auto;
+  min-width: auto;
+  margin-right: 0;
+}
+
 .blink-cursor {
   animation: blink-animation 2s steps(2, start) infinite;
   -webkit-animation: blink-animation 2s steps(2, start) infinite;
