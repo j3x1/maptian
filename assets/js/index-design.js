@@ -90,6 +90,18 @@
             $(this).append(authorDom);
           }
         );
+
+        // Does image comparison stuff
+        $(".twentytwenty-container, .compare").twentytwenty({
+          default_offset_pct: 0.5, // How much of the before image is visible when the page loads
+          orientation: 'horizontal' // Orientation of the before and after images ('horizontal' or 'vertical')
+        });
+        // Hack to circumvent race condition. (Yes I know it's a horrible hack)
+        var adjustId = setInterval(function() {
+          $(window).trigger("resize.twentytwenty");
+          clearInterval(adjustId);
+        }, 1500);
+
     });
 
     // Arctic Scroll by Paul Adam Davis
