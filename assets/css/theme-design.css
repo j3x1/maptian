@@ -40,7 +40,7 @@ header.post-header h1.post-title {
 header.post-header .vline {
 }
 
-.post-header .header-nav a.logo {
+a.logo {
   background: url("/assets/mono.png");
   width: 43px;
   height: 52px;

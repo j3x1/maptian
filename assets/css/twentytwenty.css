@@ -84,14 +84,22 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   margin-bottom: 2em;
+  /* Fitting it to the content area */
+  width: 100%;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
+
   .compare img, .twentytwenty-container img {
     max-width: 100%;
     position: absolute;
     top: 0;
     display: block;
     padding: 0;
+    padding-top: 0 !important;
   }
+
   .twentytwenty-overlay {
     cursor: pointer;
   }

@@ -403,6 +403,12 @@ ol ol, ul ul, ul ol, ol ul {
   line-height: 1;
 }
 
+.post blockquote p {
+  padding-left: 1em;
+  box-sizing: border-box;
+  border-left: 3px #888 solid;
+}
+
 .post header {
   width:90%;
   max-width: 720px;

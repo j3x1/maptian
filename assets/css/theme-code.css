@@ -23,7 +23,6 @@ body {
 }
 
 a {
-  font-family: 'anonymous_proregular';
   color: #e0e0e0;
 }
 a:hover {
@@ -47,6 +46,10 @@ figcaption {
   font-family: 'Roboto Condensed', serif;
   font-style: italic;
   font-size: 16px;
+}
+
+.header-nav a {
+  font-family: 'anonymous_proregular';
 }
 
 header.post-header h1.post-title {
@@ -210,8 +213,7 @@ span.left.small img {
 }
 
 
-
-@keyframes changeLetter {
+@keyframes logoAnimation {
   0% {
     content: ">_";
   }
@@ -233,7 +235,7 @@ span.left.small img {
 }
 
 
-.post-header .header-nav a.logo {
+a.logo {
   background: #111;
   width: 43px;
   height: 34px;
@@ -245,9 +247,9 @@ span.left.small img {
 
 }
 
-.post-header .header-nav a.logo::after {
+a.logo::after {
   font-family: 'VT323', monospace;
-  animation: changeLetter 10s linear infinite;
+  animation: logoAnimation 10s linear infinite;
   display: inline-block;
   content: ">_";
   font-size: 45px;
@@ -258,9 +260,9 @@ span.left.small img {
   transition: color 100ms linear;
 }
 
-.post-header .header-nav a.logo:hover::after {
+a.logo:hover::after {
   color: #558b2f;
 }
-.post-header .header-nav a.logo:hover {
+a.logo:hover {
   border-color: #558b2f;
 }
