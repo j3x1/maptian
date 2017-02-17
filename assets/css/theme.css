@@ -79,9 +79,19 @@ header.post-header .vline.page {
   margin: 10px auto;
 }
 
+nav.main-nav {
+  padding: 35px 5%;
+}
 
+nav.main-nav .center {
+  width:100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
 
-
+.main-nav a.logo {
+  float: left;
+}
 
 nav.header-nav {
   display:none;

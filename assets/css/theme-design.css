@@ -41,10 +41,16 @@ header.post-header .vline {
 }
 
 a.logo {
-  background: url("/assets/mono.png");
+  background: url("/assets/jj-mono.png");
+  background-size: contain;
+  background-repeat: no-repeat;
   width: 43px;
   height: 52px;
   margin-bottom: 10px;
+}
+
+.main-nav a.logo {
+  height: 32px;
 }
 
 nav.header-nav {

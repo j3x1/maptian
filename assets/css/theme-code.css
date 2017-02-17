@@ -48,6 +48,82 @@ figcaption {
   font-size: 16px;
 }
 
+
+@keyframes logoAnimation {
+  0% {
+    content: ">_";
+  }
+  25% {
+    content: ">";
+  }
+  33.3333% {
+    content: "$_";
+  }
+  58.3333% {
+    content: "$";
+  }
+  66.6666% {
+    content: "#_";
+  }
+  91.6666% {
+    content: "#";
+  }
+}
+
+
+a.logo {
+  display: inline-block;
+  background: #111;
+  width: 43px;
+  height: 34px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: #999 2px solid;
+  margin-bottom: 10px;
+  transition: border-color 100ms linear;
+  text-align: left;
+}
+
+a.logo::after {
+  font-family: 'VT323', monospace;
+  animation: logoAnimation 10s linear infinite;
+  display: inline-block;
+  text-decoration: none;
+  content: ">_";
+  font-size: 45px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 100ms linear;
+}
+
+a.logo:hover::after {
+  color: #558b2f;
+}
+a.logo:hover {
+  border-color: #558b2f;
+}
+
+.main-nav a.logo {
+  width: 35px;
+  height: 32px;
+  padding: 3px 9px;
+}
+
+.main-nav a.logo::after {
+  font-size: 31px;
+}
+.main-nav .blog-title {
+  float:left;
+  padding-left: 10px;
+  font-size: 30px;
+  height: 30px;
+}
+
+.menu-button {
+  height:42px;
+  line-height: 42px;
+}
+
 .header-nav a {
   font-family: 'anonymous_proregular';
 }
@@ -160,6 +236,15 @@ span.left.small img {
 
 
 @media screen and (max-width: 500px) {
+  a.logo {
+    background: transparent;
+    border: #999 1px solid;
+    text-align: left;
+  }
+
+  a.logo::after {
+  }
+
   .post-date {
     font-size: 13px;
   }
@@ -210,59 +295,4 @@ span.left.small img {
     left: -254px;
     padding-top: 55px;
   }
-}
-
-
-@keyframes logoAnimation {
-  0% {
-    content: ">_";
-  }
-  25% {
-    content: ">";
-  }
-  33.3333% {
-    content: "$_";
-  }
-  58.3333% {
-    content: "$";
-  }
-  66.6666% {
-    content: "#_";
-  }
-  91.6666% {
-    content: "#";
-  }
-}
-
-
-a.logo {
-  background: #111;
-  width: 43px;
-  height: 34px;
-  padding: 8px 10px;
-  border-radius: 10px;
-  border: #999 2px solid;
-  margin-bottom: 10px;
-  transition: border-color 100ms linear;
-
-}
-
-a.logo::after {
-  font-family: 'VT323', monospace;
-  animation: logoAnimation 10s linear infinite;
-  display: inline-block;
-  content: ">_";
-  font-size: 45px;
-  cursor: pointer;
-  color: #fff;
-  width:50px;
-
-  transition: color 100ms linear;
-}
-
-a.logo:hover::after {
-  color: #558b2f;
-}
-a.logo:hover {
-  border-color: #558b2f;
 }
