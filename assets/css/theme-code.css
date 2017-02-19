@@ -133,7 +133,7 @@ header.post-header h1.post-title {
   font-size: 63px;
   font-weight: normal;
   color: #fff;
-  margin: 0 0 21px 0;
+  margin: 0 0 0.45em 0;
 }
 
 header.post-header .vline {
@@ -186,6 +186,10 @@ header.post-header .vline {
  Special side floating things
 *****************************************/
 
+.author-container {
+  font-size: 20px;
+  line-height: 20px;
+}
 .author-container .vline {
   border-left-color: #fff;
 }
@@ -269,18 +273,34 @@ span.left.small img {
     line-height: 1.5em;
   }
 
+  .author-container {
+
+  }
   .author-container .name-container {
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 16px;
   }
 
   .author-container .time {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media screen and (min-width: 501px) and (max-width: 1299px) {
   header.post-header h1.post-title {
     font-size: 55px;
+  }
+
+  .author-container {
+
+  }
+  .author-container .name-container {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .author-container .time {
+    font-size: 18px;
   }
 }
 

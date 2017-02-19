@@ -80,7 +80,8 @@ header.post-header .vline.page {
 }
 
 nav.main-nav {
-  padding: 35px 5%;
+  padding: 5%;
+  margin-bottom: 0;
 }
 
 nav.main-nav .center {
@@ -142,11 +143,11 @@ figcaption {
 }
 
 .author-container {
-  margin-bottom: 38px;
+  margin-bottom: 1em;
 }
 .author-container img {
   height: auto;
-  padding: 0.6em 0;
+  padding: 0 0 0.6em 0 !important;
   position: relative;
   left: auto;
   right: 0;
@@ -222,8 +223,8 @@ span.right figcaption {
 
 @media screen and (min-width: 501px) and (max-width: 1299px) {
   .author-container {
-    margin-bottom: 38px;
-    margin-top: 47px;
+    margin-bottom: 1em;
+    margin-top: 1em;
   }
 
   span.fit img {
