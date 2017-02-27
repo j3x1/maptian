@@ -68,12 +68,18 @@
 
         $(".post-content p").last().append("<span class='blink-cursor'>_</span>");
 
+        var readingTime = 0;
+        var WPM = 175;
+        var $content = $("section.post-content");
+        if ( $content.length > 0 ) {
+          var readingTime = Math.ceil($content.text().trim().split(/\s+/).length / WPM);
+        }
         // Adds the author content where the tag is
         var authorDom = '<div class="author-container">';
         authorDom += '<hr class="hline">';
         authorDom += '<img src="/assets/jx-line.png" />';
         authorDom += '<div class="name-container">by <span class="name">Chai Jia Xun</span></div>';
-        authorDom += '<div class="time">a <span class="minutes">15</span>min read</div>';
+        authorDom += '<div class="time">a <span class="minutes">' + readingTime + '</span>min read</div>';
         authorDom += '<div class="vline"></div>';
         authorDom += '</div>';
         $(".post-content author").each(
