@@ -79,7 +79,7 @@
         authorDom += '<hr class="hline">';
         authorDom += '<img src="/assets/jx-line.png" />';
         authorDom += '<div class="name-container">by <span class="name">Chai Jia Xun</span></div>';
-        authorDom += '<div class="time">a <span class="minutes">' + readingTime + '</span>min read</div>';
+        authorDom += '<div class="time">a <span class="minutes">' + readingTime + '</span> min read</div>';
         authorDom += '<div class="vline"></div>';
         authorDom += '</div>';
         $(".post-content author").each(
