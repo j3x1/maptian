@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{!-- Document Settings --}}
+    {{! Document Settings }}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    {{!-- Page Meta --}}
+    {{! Page Meta }}
     <title>{{meta_title}}</title>
-    <meta name="description" content="{{meta_description}}" />
-
+    
     {{!-- Mobile Meta --}}
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,55 +15,116 @@
     {{!-- Brand icon --}}
     <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
 
-    {{!-- Styles'n'Scripts --}}
+    {{! Styles'n'Scripts }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/custom.css"}}" />
 
-    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "css/theme.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "css/twentytwenty.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/font-awesome.css"}}" />    
     <!-- JJ's Stuff START -->
-    <link rel="stylesheet" type="text/css" href="{{asset "css/theme-design.css"}}" />
-    <link rel="stylesheet" type="text/css" href="{{asset "fonts/design/fonts.css"}}" />
+    <!-- <link rel="stylesheet" type="text/css" href="{{asset "css/theme-design.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "fonts/design/fonts.css"}}" /> -->
     <!-- JJ's Stuff END -->
     <!-- JX's Stuff START -->
-    <!-- <link rel="stylesheet" type="text/css" href="{{asset "css/theme-code.css"}}" />
+    <link rel="stylesheet" type="text/css" href="{{asset "css/theme-code.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "fonts/anonymous.css"}}" />
     <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,700|Roboto+Slab" rel="stylesheet"> -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,700|Roboto+Slab" rel="stylesheet">
     <!-- JX's Stuff END -->
     <script src="https://use.fontawesome.com/80f94a86af.js"></script>
-    {{!-- Ghost outputs important style and meta data with this tag --}}
+
+
+    <script>
+      // document.addEventListener( 'DOMContentLoaded', loadFiles, false );
+
+      function loadJS( src ){
+        "use strict";
+        var ref = window.document.getElementsByTagName( "script" )[ 0 ];
+        var script = window.document.createElement( "script" );
+        script.src = src;
+        ref.parentNode.insertBefore( script, ref );
+        return script;
+      }
+
+      function loadCSS( href, before, media ){
+        "use strict";
+        var ss = window.document.createElement( "link" );
+        var ref = before || window.document.getElementsByTagName( "script" )[ 0 ];
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        ref.parentNode.insertBefore( ss, ref );
+        setTimeout( function(){
+          ss.media = media || "all";
+        } );
+        return ss;
+      }
+
+      function loadFiles() {
+        loadCSS('//fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700');
+        loadCSS('{{asset "css/font-awesome.css"}}')
+      }
+    </script>
+
+    {{! Ghost outputs important style and meta data with this tag }}
     {{ghost_head}}
+
+
 </head>
-<body class="{{body_class}} nav-closed">
-
-    {{!-- The blog navigation links --}}
-    {{navigation}}
-
-    <div class="site-wrapper">
-
-        {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+<body class="{{body_class}} nav-closed grey lighten-5">
+    <div class="blogWrapper">
+    <div class="progressbarWrapper">
+      <div class="progressbar"></div>
+    </div>
+        <header class="topbar">
+          <div class="topbarCont">
+            {{#if @blog.logo}}<a href="{{@blog.url}}" title="{{@blog.title}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" class="topbarLogo"></a>
+            {{else}}<a href="{{@blog.url}}" title="{{@blog.title}}">{{@blog.title}}</a>
+            {{/if}}
+          </div>
+          <div class="topbarCont">
+            <div class="topbarInfo">
+            </div>
+          </div>
+        </header>
+        {{! Everything else gets inserted here }}
         {{{body}}}
-
-        {{!-- The tiny footer at the very bottom --}}
-        <footer class="site-footer clearfix">
-            <section class="copyright"><a href="{{@blog.url}}">{{@blog.title}}</a> &copy; {{date format="YYYY"}}</section>
-            <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a></section>
+        <footer>
+          <div class="firstfooter">
+           <div class="footerMenu">
+             {{navigation}}
+           </div>
+          </div>
+          <div class="lastfooter">
+            <div class="lastfooterSubcontainer">
+              <div class="connect">
+              <span>Connect:</span>
+              <!-- Here put link to your social profiles (href="http://example.com/") -->
+              <a class="lastfooterSocial" target="_blank" href="#"><i class="icon fa fa-github"></i></a>
+              <a class="lastfooterSocial" target="_blank" href="#"><i class="icon fa fa-linkedin"></i></a>
+              </div>
+              <div class="creators">
+              <span class="themeCreator">Powered by <a href="https://ghost.org/">Ghost</a></span>
+              </div>
+            </div>
+          </div>
         </footer>
-
     </div>
 
-    {{!-- jQuery needs to come before `{{ghost_foot}}` so that jQuery can be used in code injection --}}
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.12.0.min.js"></script>
-    {{!-- Ghost outputs important scripts and data with this tag --}}
+    {{! Ghost outputs important scripts and data with this tag }}
     {{ghost_foot}}
+
+   <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+   
+    {{! The main JavaScript file for Casper }}
+    <script type="text/javascript" src="{{asset "js/index.js"}}"></script>
+    
     {{!-- Fitvids makes video embeds responsive and awesome --}}
     <script type="text/javascript" src="{{asset "js/jquery.fitvids.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.event.move.js"}}"></script>
     <script type="text/javascript" src="{{asset "js/jquery.twentytwenty.js"}}"></script>
-
-    {{!-- The main JavaScript file for Casper --}}
+    
+    {{!-- The main JavaScript file --}}
     <!-- <script type="text/javascript" src="{{asset "js/index-code.js"}}"></script> -->
-    <script type="text/javascript" src="{{asset "js/index-design.js"}}"></script>
-
+    <!-- <script type="text/javascript" src="{{asset "js/index-design.js"}}"></script> -->
 </body>
 </html>
+

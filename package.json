@@ -2,9 +2,9 @@
     "name": "maptian",
     "description": "Custom blog theme created for Jia Xun and Jia Jin's personal blog",
     "demo": "https://chaijiaxun.com",
-    "version": "0.0.1",
+    "version": "0.0.5",
     "engines": {
-        "ghost": ">=0.9.0 <1.0.0"
+        "ghost": ">=2.0.0"
     },
     "license": "MIT",
     "screenshots": {
@@ -26,9 +26,10 @@
     "keywords": [
         "ghost",
         "theme"
+        "ghost-theme"
     ],
     "repository": {
         "type": "git",
-        "url": "https://github.com/cjx3711/blog-design"
+        "url": "https://github.com/j3x1/blog-design.git"
     }
 }

@@ -1,118 +1,65 @@
 {{!< default}}
 
-{{!-- The comment above "< default" means - insert everything in this file into
-    the {{{body}}} of the default.hbs template, containing the blog header/footer. --}}
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
 
-{{!-- Everything inside the #post tags pulls data from the post --}}
+{{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
-<!-- <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"> -->
-
-<header class="main-header post-head no-cover">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        <div class="center">
-          <a href="/" class="logo"></a>
-        </div>
-
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
-</header>
-
-<main class="content" role="main">
-    <article class="{{post_class}}">
-        <header class="post-header">
-            <nav class="header-nav noselect">
-              <a class="logo" href="/"></a>
-              <a class="link" href="/"><i class="fa fa-caret-right" aria-hidden="true"></i> BLOG</a>
-              <a class="link" href="/about">ABOUT</a>
-              <a class="link" href="/contact">CONTACT</a>
-            </nav>
-            <div class="vline"></div>
-            <section class="post-meta">
-                <time class="post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="Do MMM YYYY"}}</time>
-            </section>
-            <h1 class="post-title">{{title}}</h1>
-            <section class="post-meta post-tags noselect">
-                {{tags separator=" "}}
-            </section>
-        </header>
 
 
-        <section class="post-content">
+
+<main class="mainContent" role="main">
+<article class="post {{post_class}}">
+<h1 class="postTitle" itemprop="headline">{{title}}</h1>
+      <div class="postInfo">
+        <span>{{author}} |</span>
+        <span class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}} |</span>
+        <span>reading time: <span class="eta"></span></span>
+      </div>
+      <div class="postCover" style="background-image:url('{{img_url feature_image}}')"></div>
+        <section class="post-content postContent">
             {{content}}
         </section>
 
-        <footer class="post-footer">
+{{#next_post}}
+<section class="recentPost">
+  <p>Check the next post: <a href="{{url}}" rel="bookmark" title="{{title}}">{{title}}</a> »</p>
+</section>
+{{else}}
+{{/next_post}}
 
-        {{!-- Everything inside the #author tags pulls data from the author --}}
-        {{#author}}
+<div class="postShare-wrap">
+<div class="postSharing">
+  <span>Share on:</span>
+  <a class="postShare fb" title="{{{title}}}" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><i class="icon fa fa-facebook"></i></a>
+  <a class="postShare   twitter" title="{{{title}}}" target="_blank" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"><i class="icon fa fa-twitter"></i></a>
+  <a class="postShare   googleplus" title="{{{title}}}" target="_blank" href="https://plus.google.com/share?url={{url absolute="true"}}" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;"><i class="icon fa fa-google-plus"></i></a>
+</div>
+</div>
 
-            {{#if image}}
-            <figure class="author-image">
-                <a class="img" href="{{url}}" style="background-image: url({{image}})"><span class="hidden">{{name}}'s Picture</span></a>
-            </figure>
-            {{/if}}
+</article>
+{{#author}}
+<section class="authorWrap">
+        <div class="authorInner">
+        {{#if profile_image}}
+          <img alt='{{name}}' src='{{img_url profile_image}}'>
+        {{/if}}
+        </div>
+        <div class="authorDesc">
+          <img alt='{{name}}' src='{{img_url profile_image}}'>
+          <h4 class="author"><a href="{{url}}" title="{{name}}" rel="author">{{name}}</a></h4>
+          {{#if bio}}
+          <p class="authorInfo">{{bio}}
+          {{#if website}}<span> Say hey: <a href="{{website}}">{{website}}</a></span>{{/if}}
+          </p>
+          {{/if}}
+        </div>
+      </section>
+      {{/author}}
 
-            <section class="author">
-                {{#if bio}}
-                    <p>{{bio}}</p>
-                {{else}}
-                    <p>Read <a href="{{url}}">more posts</a> by this author.</p>
-                {{/if}}
-            </section>
+<!-- HERE GOES YOUR DISQUSS CODE -->
 
-        {{/author}}
-
-            <section class="share">
-                <h4>Share this post</h4>
-                <a class="icon-twitter" href="https://twitter.com/intent/tweet?text={{encode title}}&amp;url={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-                    <span class="hidden">Twitter</span>
-                </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{url absolute="true"}}"
-                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-                    <span class="hidden">Facebook</span>
-                </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url={{url absolute="true"}}"
-                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-                    <span class="hidden">Google+</span>
-                </a>
-            </section>
-
-            {{!-- Email subscribe form at the bottom of the page --}}
-            {{#if @labs.subscribers}}
-            <section class="gh-subscribe">
-                <h3 class="gh-subscribe-title">Subscribe to {{@blog.title}}</h3>
-                <p>Get the latest posts delivered right to your inbox.</p>
-                {{subscribe_form placeholder="Your email address"}}
-                <span class="gh-subscribe-rss">or subscribe <a href="http://cloud.feedly.com/#subscription/feed/{{@blog.url}}/rss/">via RSS</a> with Feedly!</span>
-            </section>
-            {{/if}}
-
-        </footer>
-
-    </article>
+<!-- HERE GOES YOUR DISQUSS CODE -->
 </main>
-
-{{!-- Links to Previous/Next posts --}}
-<aside class="read-next">
-    {{#next_post}}
-    <a class="read-next-story {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
-        <section class="post">
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/next_post}}
-    {{#prev_post}}
-    <a class="read-next-story prev {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}" href="{{url}}">
-        <section class="post">
-            <h2>{{title}}</h2>
-            <p>{{excerpt words="19"}}&hellip;</p>
-        </section>
-    </a>
-    {{/prev_post}}
-</aside>
 
 {{/post}}
