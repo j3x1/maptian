@@ -74,25 +74,9 @@
     <div class="progressbarWrapper">
       <div class="progressbar"></div>
     </div>
-        <header class="topbar">
-          <div class="topbarCont">
-            {{#if @blog.logo}}<a href="{{@blog.url}}" title="{{@blog.title}}"><img src="{{@blog.logo}}" alt="{{@blog.title}}" class="topbarLogo"></a>
-            {{else}}<a href="{{@blog.url}}" title="{{@blog.title}}">{{@blog.title}}</a>
-            {{/if}}
-          </div>
-          <div class="topbarCont">
-            <div class="topbarInfo">
-            </div>
-          </div>
-        </header>
         {{! Everything else gets inserted here }}
         {{{body}}}
         <footer>
-          <div class="firstfooter">
-           <div class="footerMenu">
-             {{navigation}}
-           </div>
-          </div>
           <div class="lastfooter">
             <div class="lastfooterSubcontainer">
               <div class="connect">

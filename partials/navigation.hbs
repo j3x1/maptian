@@ -1,13 +1,7 @@
-<nav role="navigation" class="homeNav nav">
-  <div class="navLinks-wrap">
-    <div class="navLinks">
-    		 <ul class="onlyLinks">
-              {{#foreach navigation}}
-              <li class="navLink nav-{{slug}}{{#if current}} nav-current{{/if}}" role="presentation">
-                <a href="{{url absolute="true"}}">{{label}}</a>
-              </li>
-              {{/foreach}}
-         </ul>
-    </div>
-  </div>
+<nav class="navigation-menu noselect">
+  <a class="logo" href="/"></a>
+  {{#foreach navigation}}
+    <a class="link nav-{{slug}}" href="{{url absolute="true"}}">{{#if current}}<i class="fa fa-caret-right" aria-hidden="true"></i>{{/if}} {{label}}</a>
+  {{/foreach}}
+  <hr/>
 </nav>

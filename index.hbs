@@ -3,19 +3,20 @@
 
 {{! The big featured header }}
 
-<section class="heading {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
-	<div class="headingSub">
-		<h1 class="headingTitle">{{@blog.title}}<br><span>{{@blog.description}}</span></h1>
-	</div>
-</section>
-
-<div class="headerMenu">
-{{navigation}}
-</div>
 
 
 {{! The main content area on the homepage }}
 <div class="mainContent">
+	
+		<header class="pageHeader">
+			<section class="heading {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
+				<div class="headingSub">
+					<h1 class="headingTitle">{{@blog.title}}<br><span>{{@blog.description}}</span></h1>
+				</div>
+			</section>
+			{{navigation}}
+			<div class="vline"></div>
+		</header>
     {{! The tag below includes the post loop - partials/loop.hbs }}
     {{> "loop"}}
 </div>
