@@ -8,6 +8,7 @@ Structure of the theme is based off the [ghostium](https://github.com/oswaldoaca
 
 ## Maptian Code
 > Ported to ghost v2
+
 Custom two part blog theme created for Jia Xun's personal blog
 
 ## Maptian Design
