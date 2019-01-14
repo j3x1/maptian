@@ -281,6 +281,7 @@ nav.navigation-menu a {
 
 .mainContent {
   position:relative;
+  min-height: 75vh
 }
 
 header.pageHeader {

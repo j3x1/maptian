@@ -427,7 +427,8 @@ hr {
 }
 
 .postContent {
-    margin-top: 42px
+    margin-top: 42px;
+    margin-bottom: 42px;
 }
 
 .postContent p {
