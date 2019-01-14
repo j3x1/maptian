@@ -1,46 +1,28 @@
 {{!< default}}
 
-{{!-- This is a page template. A page outputs content just like any other post, and has all the same
-    attributes by default, but you can also customise it to behave differently if you prefer. --}}
+{{! This is a page template. A page outputs content just like any other post, and has all the same
+    attributes by default, but you can also customise it to behave differently if you prefer. }}
+{{!< default}}
 
-{{!-- Everything inside the #post tags pulls data from the page --}}
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
+
+{{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
-<!-- <header class="main-header post-head {{#if image}}" style="background-image: url({{image}}){{else}}no-cover{{/if}}"> -->
-<header class="main-header post-head no-cover">
-    <nav class="main-nav {{#if image}}overlay{{/if}} clearfix">
-        <div class="center">
-          <a href="/" class="logo"></a>
-        </div>
-
-        {{#if @blog.navigation}}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {{/if}}
-    </nav>
-</header>
-
-<main class="content" role="main">
-    <article class="{{post_class}}">
-
-      <header class="post-header">
-          <nav class="header-nav noselect">
-            <a class="logo" href="/"></a>
-            <a class="link" href="/"><i class="fa fa-caret-right" aria-hidden="true"></i> BLOG</a>
-            <a class="link" href="/about">ABOUT</a>
-            <a class="link" href="/contact">CONTACT</a>
-          </nav>
-          <div class="vline page"></div>
-          <section class="about">
-            <h1 class="hi">Hi, I'm Jia Xun</h1>
-            <img src="/jiaxun/assets/jx-about.jpg"/>
-          </section>
-      </header>
-
-      <section class="post-content">
-          {{content}}
+<main class="mainContent" role="main">
+  <header class="pageHeader">
+    {{navigation}}
+    <div class="vline"></div>
+  </header>
+  
+  <article class="post {{post_class}}">
+    <h1 class="postTitle" itemprop="headline">{{title}}</h1>
+      <div class="postCover" style="background-image:url('{{img_url feature_image}}')"></div>
+      <section class="post-content postContent">
+        {{content}}
       </section>
-
-
-    </article>
+  </article>
 </main>
+
 {{/post}}
