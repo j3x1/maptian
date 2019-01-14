@@ -129,29 +129,6 @@ video {
     font-size: 100%;
     vertical-align: baseline;
     background: 0 0;
-    font-family: Roboto, sans-serif
-}
-
-pre{
-  word-wrap: normal;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  -webkit-hyphens: none;
-  hyphens: none;
-  font-size: 1em;
-  line-height: 1.75em;
-  margin: 3em 0em;
-}
-
-pre code{
-  white-space: pre;
-  background: hsla(0, 0%, 93%, 0.43);
-  padding: 0.25em 1em;
-  margin: 0.1em 0.15em;
-  border: 1px solid #eee;
-  display: inline-block;
-  width: 100%;
-  border-radius: 4px;
 }
 
 .postContent td,
@@ -435,11 +412,6 @@ hr {
     margin: 19px 0 0;
     font-size: 1rem;
     line-height: 1.8
-}
-
-.postContent strong {
-    font-weight: 500;
-    color: #444
 }
 
 .postContent a {
