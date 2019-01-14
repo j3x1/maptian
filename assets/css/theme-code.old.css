@@ -1,0 +1,318 @@
+/* ==========================================================================
+   CSS specific to the design of the Code version of the site.
+   ========================================================================== */
+
+
+
+/****
+PAGE STUFF
+****/
+
+.about .hi {
+  font-family: 'anonymous_proregular';
+  font-size: 40px;
+}
+
+/*
+/****************************************
+ Post header
+****************************************/
+body {
+  font-family: 'Roboto Slab', serif;
+  color: #e0e0e0;
+}
+
+a {
+  color: #e0e0e0;
+}
+a:hover {
+  color: #558b2f;
+}
+
+*::selection {
+  background: #DCEDC8; /* WebKit/Blink Browsers */
+}
+*::-moz-selection {
+  background: #DCEDC8; /* Gecko Browsers */
+}
+
+.site-wrapper {
+  background: #333333;
+}
+
+
+
+figcaption {
+  font-family: 'Roboto Condensed', serif;
+  font-style: italic;
+  font-size: 16px;
+}
+
+
+@keyframes logoAnimation {
+  0% {
+    content: ">_";
+  }
+  25% {
+    content: ">";
+  }
+  33.3333% {
+    content: "$_";
+  }
+  58.3333% {
+    content: "$";
+  }
+  66.6666% {
+    content: "#_";
+  }
+  91.6666% {
+    content: "#";
+  }
+}
+
+
+a.logo {
+  display: inline-block;
+  background: #111;
+  width: 43px;
+  height: 34px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: #999 2px solid;
+  margin-bottom: 10px;
+  transition: border-color 100ms linear;
+  text-align: left;
+}
+
+a.logo::after {
+  font-family: 'VT323', monospace;
+  animation: logoAnimation 10s linear infinite;
+  display: inline-block;
+  text-decoration: none;
+  content: ">_";
+  font-size: 45px;
+  cursor: pointer;
+  color: #fff;
+  transition: color 100ms linear;
+}
+
+a.logo:hover::after {
+  color: #558b2f;
+}
+a.logo:hover {
+  border-color: #558b2f;
+}
+
+.main-nav a.logo {
+  width: 35px;
+  height: 32px;
+  padding: 3px 9px;
+}
+
+.main-nav a.logo::after {
+  font-size: 31px;
+}
+.main-nav .blog-title {
+  float:left;
+  padding-left: 10px;
+  font-size: 30px;
+  height: 30px;
+}
+
+.menu-button {
+  height:42px;
+  line-height: 42px;
+}
+
+.header-nav a {
+  font-family: 'anonymous_proregular';
+}
+
+header.post-header h1.post-title {
+  font-family: 'anonymous_proregular';
+  font-size: 63px;
+  font-weight: normal;
+  color: #fff;
+  margin: 0 0 0.45em 0;
+}
+
+header.post-header .vline {
+  border-left-color: #fff;
+}
+
+.post-date {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  color: #fff;
+}
+
+.post-tags a {
+  background: #999999;
+  color: #fff;
+  font-family: 'Roboto Condensed', serif;
+  font-size:
+}
+
+.post-tags a:hover {
+  background: #AED581;
+  color: #558b2f;
+
+}
+
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+  font-family: 'Roboto Condensed', serif;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+.post h1 {
+  font-size: 50px;
+}
+.post h2 {
+  font-size: 40px;
+}
+.post h3 {
+  font-size: 30px;
+}
+.post p {
+  font-family: 'Roboto Slab', serif;
+  font-size: 22px;
+  line-height: 1.5em;
+}
+
+
+/****************************************
+ Special side floating things
+*****************************************/
+
+.author-container {
+  font-size: 20px;
+  line-height: 20px;
+}
+.author-container .vline {
+  border-left-color: #fff;
+}
+
+.author-container .name-container {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.author-container .time {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+span.right.small {
+  right: 0;
+}
+span.right.small img {
+  width: auto;
+  min-width: auto;
+  margin-left: 0;
+}
+span.left.small {
+  left: 0;
+}
+span.left.small img {
+  width: auto;
+  min-width: auto;
+  margin-right: 0;
+}
+
+.blink-cursor {
+  animation: blink-animation 2s steps(2, start) infinite;
+  -webkit-animation: blink-animation 2s steps(2, start) infinite;
+  margin-left: 10px;
+  background: #e0e0e0;
+}
+@keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink-animation {
+  to {
+    visibility: hidden;
+  }
+}
+
+
+@media screen and (max-width: 500px) {
+  a.logo {
+    background: transparent;
+    border: #999 1px solid;
+    text-align: left;
+  }
+
+  a.logo::after {
+  }
+
+  .post-date {
+    font-size: 13px;
+  }
+  header.post-header h1.post-title {
+    font-size: 31px;
+  }
+  .post-tags a {
+    font-size: 11px;
+    margin: 0 0 0 0;
+  }
+  .post h1 {
+    font-size: 28px;
+  }
+  .post h2 {
+    font-size: 24px;
+  }
+  .post h3 {
+    font-size: 20px;
+  }
+  .post p {
+    font-size: 16px;
+    line-height: 1.5em;
+  }
+
+  .author-container {
+
+  }
+  .author-container .name-container {
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  .author-container .time {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 501px) and (max-width: 1299px) {
+  header.post-header h1.post-title {
+    font-size: 55px;
+  }
+
+  .author-container {
+
+  }
+  .author-container .name-container {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  .author-container .time {
+    font-size: 18px;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  span.overflow.right-caption figcaption {
+    width: 192px;
+    right: -254px;
+    padding-top: 55px;
+  }
+  span.overflow.left-caption figcaption {
+    width: 192px;
+    left: -254px;
+    padding-top: 55px;
+  }
+}
