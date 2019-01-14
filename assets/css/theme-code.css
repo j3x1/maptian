@@ -186,6 +186,14 @@ h1, h2, h3, h4, h5, h6,
   font-family: Inconsolata, monospace, sans-serif;
 }
 
+.postContent .twentytwenty-wrapper {
+    margin-top: 42px !important;
+} 
+
+.postContent .twentytwenty-wrapper img {
+    margin-top: 0 !important;
+}
+
 h1.postTitle {
   text-align: left;
   font-family: 'anonymous_proregular';
@@ -286,6 +294,14 @@ a.logo:hover {
   to {
     visibility: hidden;
   }
+}
+
+.lastfooter {
+  background: #444;
+}
+
+.lastfooterSubcontainer>* {
+    color: #AAA;
 }
 
 

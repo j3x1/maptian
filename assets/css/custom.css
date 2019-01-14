@@ -443,15 +443,6 @@ hr {
     display: block
 }
 
-.postContent figure:hover,
-.postContent iframe:hover,
-.postContent img:hover,
-.postContent>iframe:hover {
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, .2);
-    -webkit-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out
-}
-
 .postContent figcaption {
     font-weight: 400;
     margin-top: 21px;
