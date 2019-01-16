@@ -10,28 +10,25 @@ body, p, .postExcerpt p, a, a.readMore {
   color: #e0e0e0;
 }
 
- {
-  font-size: 22px;
-}
-
-blockquote {
+.post-content blockquote {
   color: #AAA;
 }
-blockquote:before {
+
+.post-content blockquote:before {
   width: 4px;
   background: #AAA;
 }
 
-.postContent h1 {
+.post-content h1 {
   font-size: 50px;
 }
-.postContent h2 {
+.post-content h2 {
   font-size: 40px;
 }
-.postContent h3 {
+.post-content h3 {
   font-size: 30px;
 }
-body, .postExcerpt p, .postContent p, .postContent li {
+body, .postExcerpt p, .post-content p, .post-content li {
   font-family: 'Roboto Slab', serif;
   font-size: 22px;
   line-height: 1.5em;
@@ -48,7 +45,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6,
-.postContent h1, .postContent h2, .postContent h3, .postContent h4, .postContent h5, .postContent h6 {
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
   font-family: 'Roboto Condensed', serif;
   color: #fff;
   margin-bottom: 20px;
@@ -74,16 +71,16 @@ h1, h2, h3, h4, h5, h6,
 
 
 @media screen and (max-width: 600px) {
-  .postContent h1 {
+  .post-content h1 {
     font-size: 28px;
   }
-  .postContent h2 {
+  .post-content h2 {
     font-size: 24px;
   }
-  .postContent h3 {
+  .post-content h3 {
     font-size: 20px;
   }
-  body .postExcerpt p, .postContent p, .postContent li, .postContent pre {
+  body .postExcerpt p, .post-content p, .post-content li, .post-content pre {
     font-size: 16px;
     line-height: 1.4em;
   }
@@ -127,6 +124,7 @@ h1, h2, h3, h4, h5, h6,
 
 .heading {
   background: #222222;
+  background-size: cover;
 }
 
 .headingTitle {
@@ -163,17 +161,17 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Post content and page overrides */
-.postContent a {
+.post-content a {
     border-bottom: 1px solid #e0e0e0;
 }
 
-.postContent a:hover {
+.post-content a:hover {
     border-bottom: 1px solid #558b2f;
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out
 }
 
-.postContent code {
+.post-content code {
   background-color: #222;
   border: #E3EDF3 1px solid;
   border-radius: 3px;
@@ -181,7 +179,7 @@ h1, h2, h3, h4, h5, h6,
   font-family: Inconsolata, monospace, sans-serif;
 }
 
-.postContent pre {
+.post-content pre {
   font-family: Inconsolata, monospace, sans-serif;
   background-color: #222;
   margin-left: auto;
@@ -198,18 +196,18 @@ h1, h2, h3, h4, h5, h6,
   overflow-x: scroll;
 }
 
-.postContent pre code {
+.post-content pre code {
   border: 0;
   padding: 0px;
 }
 
 
 
-.postContent .twentytwenty-wrapper {
+.post-content .twentytwenty-wrapper {
     margin-top: 42px !important;
 } 
 
-.postContent .twentytwenty-wrapper img {
+.post-content .twentytwenty-wrapper img {
     margin-top: 0 !important;
 }
 
@@ -324,199 +322,21 @@ a.logo:hover {
 }
 
 
-/* Shared theme stuff */
-nav.navigation-menu a {
-    display: block;
-    text-decoration: none;
-}
+/************************
+     NAVIGATION MENU
+*************************/
 
-.navigation-menu hr {
-  display:none;
-}
-
-
-.mainContent {
-  position:relative;
-  min-height: 75vh
-}
-
-header.pageHeader {
-  position: relative;
-}
-
-header.pageHeader h1.post-title {
-  width:100%;
-}
 header.pageHeader .vline {
-  position:absolute;
-  height:200px;
-  top:3px;
-  bottom:-1px;
-  left: -42px;
-  border-left: 1px solid;
   border-left-color: #e0e0e0;
-}
-
-nav.navigation-menu {
-  position: absolute;
-  width: 180px;
-  left: -180px;
-  top: 0;
-  padding: 10px;
-}
-nav.navigation-menu a {
-  text-transform: uppercase;
-  display: block;
-  text-decoration: none;
-}
-
-@media only screen and (max-width:1200px) {
-  nav.navigation-menu {
-    position: relative;
-    width: 100%;
-    left: inherit;
-    top: inherit;
-    padding: 30px 0 0;
-  }
-  
-  nav.navigation-menu a {
-      display: inline-block;
-      text-decoration: none;
-      margin-right: 20px;
-  }
-  .navigation-menu hr {
-    display:block;
-  }
-
-  header.pageHeader .vline {
-    display: none;
-  }
-  
-  a.logo {
-    width: 50px;
-    line-height: 0.5em
-  }
-
-  a.logo::after {
-    font-size: 28px;
-  }
-}
-
-.bottomContainer {
-  display: flex;
-  display: -webkit-flex;
-  -webkit-justify-content: space-between;
-  justify-content: space-between;
 }
 
 .postTags a {
   color: #fff;
-  padding: 5px 10px;
-  margin: 0 6px 0 0;
-  text-transform: uppercase;
-  font-size: 15px;
-  border-radius: 5px;
   background: #999999;
   font-family: 'Roboto Condensed', serif;
-  -webkit-transition: background 120ms;
-  transition: background 120ms;
 }
 
 .postTags a:hover {
     background: #AED581;
     color: #558b2f;
 }
-
-
-.postShare-wrap {
-  margin-bottom: 15px;
-}
-
-/****************************************
- Special side floating things
-*****************************************/
-
-.authorContainer {
-  margin-top: 0.5em;
-  width: 100%;
-}
-.authorContainer img {
-  height: 70px;
-  margin-bottom: 0.6em;
-  display: none;
-  position: relative;
-  left: auto;
-  right: 0;
-  -webkit-transform: none;
-  -ms-transform: none;
-  transform: none;
-  width: auto;
-  border-radius: 100%;
-}
-
-.authorContainer .nameContainer {
-  display: inline-block;
-  font-style: italic;
-  font-size: 0.8em;
-  
-}
-.authorContainer .nameContainer .name {
-  font-style: normal;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.authorContainer .time {
-  display: inline-block;
-  text-align: right;
-  font-size: 18px;
-}
-
-.authorContainer hr {
-  margin: 0.5em 0;
-}
-
-
-@media screen and (min-width: 1200px) {
-
-  .authorContainer {
-    margin-bottom: 1em;
-    position:absolute;
-    width: 220px;
-    left: -220px;
-    padding-right: 70px;
-    box-sizing: border-box;
-    text-align: right;
-    text-align: -webkit-right;
-  }
-  
-  .authorContainer img {
-    display: block;
-  }
-  
-  .authorContainer .nameContainer {
-    display: block;
-    text-align: right;
-    line-height: 0.6;
-  }
-
-  .authorContainer .time {
-    display: block;
-    text-align: right;
-    font-size: 18px;
-  }
-
-  .authorContainer .vline {
-    position:absolute;
-    top: 0;
-    right: 40px;
-    bottom: 0;
-    border-left: 1px solid;
-    border-left-color: #FFF;
-  }
-
-  .authorContainer hr {
-    display: none;
-  }
-}
-

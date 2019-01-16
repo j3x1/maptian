@@ -8,8 +8,6 @@ h4 {
 article,
 aside,
 details,
-figcaption,
-figure,
 footer,
 header,
 hgroup,
@@ -77,8 +75,6 @@ dl,
 dt,
 em,
 fieldset,
-figcaption,
-figure,
 footer,
 form,
 h1,
@@ -92,7 +88,6 @@ hgroup,
 html,
 i,
 iframe,
-img,
 ins,
 kbd,
 label,
@@ -374,7 +369,6 @@ input:focus {
     height: 1%
 }
 
-.postContent img,
 .postCover {
     height: auto
 }
@@ -433,9 +427,7 @@ hr {
     color: #22282B
 }
 
-.postContent figure,
 .postContent iframe,
-.postContent img,
 .postContent>iframe {
     width: auto;
     max-width: 680px;
@@ -449,13 +441,6 @@ hr {
     color: #666;
     font-style: italic;
     font-size: 1rem
-}
-
-.postContent img.alignleft {
-    width: inherit;
-    height: auto;
-    float: left;
-    margin: 0 21px 21px 0!important
 }
 
 .postContent ul {
@@ -707,7 +692,7 @@ footer {
 
 .blogWrapper,
 .progressbarWrapper {
-    width: 94%;
+    width: 100%%;
     background: #fff;
     max-width: 1440px;
     z-index: 1000
@@ -1106,9 +1091,7 @@ footer {
         font-size: 1.5rem
     }
     .onlyLinks,
-    .postContent figure,
     .postContent iframe,
-    .postContent img,
     .postContent>iframe {
         width: 100%
     }
