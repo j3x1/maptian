@@ -35,7 +35,8 @@ function(e) {
         var i = {
                 readingTimeTarget: ".eta",
                 wordCountTarget: null,
-                wordsPerMinute: 270,
+                wordsPerMinute: 250,
+                secondsPerImage: 20,
                 round: !0,
                 lang: "en",
                 lessThanAMinuteString: "",
@@ -69,11 +70,12 @@ function(e) {
             s = "perc";
         else var o = a.lessThanAMinuteString || "Less than a minute",
             s = "min";
-        var d = function(t) {
+        var d = function(t, img) {
             if ("" !== t) {
                 var i = t.trim().split(/\s+/g).length,
                     n = a.wordsPerMinute / 60,
                     r = i / n;
+                r += img * a.secondsPerImage;
                 if (a.round === !0) var d = Math.round(r / 60);
                 else var d = Math.floor(r / 60);
                 var l = Math.round(r - 60 * d);
@@ -87,8 +89,9 @@ function(e) {
         };
         r.each(function() {
             null != a.remotePath && null != a.remoteTarget ? e.get(a.remotePath, function(t) {
-                d(e("<div>").html(t).find(a.remoteTarget).text())
-            }) : d(r.text())
+                var g = e("<div>").html(t).find(a.remoteTarget);
+                d(g.text(), g.find("img").length)
+            }) : d(r.text(), r.find("img").length)
         })
     }
 }(jQuery), $(document).ready(function() {

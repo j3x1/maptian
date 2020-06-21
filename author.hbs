@@ -2,9 +2,9 @@
 {{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
 {{! The big featured header }}
-<section class="heading {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
+<section class="heading {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}}){{else}}no-cover{{/if}}">
   <div class="headingSub">
-    <h1 class="headingTitle">{{@blog.title}}<br><span>{{@blog.description}}</span></h1>
+    <h1 class="headingTitle">{{@site.title}}<br><span>{{@site.description}}</span></h1>
   </div>
 </section>
 <div class="headerMenu">
@@ -15,7 +15,7 @@
 
 {{! The main content area on the homepage }}
 <main class="mainContent" role="main">
-{{#author}}
+{{#primary_author}}
 <section class="authorWrap">
         <div class="authorInner">
         {{#if profile_image}}
@@ -32,7 +32,7 @@
           {{/if}}
         </div>
 </section>
-{{/author}}
+{{/primary_author}}
 {{! The tag below includes the post loop - partials/loop.hbs }}
 {{> "loop"}}
 

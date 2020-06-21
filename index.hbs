@@ -9,9 +9,9 @@
 <div class="mainContent">
 	
 		<header class="pageHeader">
-			<section class="heading {{#if @blog.cover_image}}" style="background-image: url({{@blog.cover_image}}){{else}}no-cover{{/if}}">
+			<section class="heading {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}}){{else}}no-cover{{/if}}">
 				<div class="headingSub">
-					<h1 class="headingTitle">{{@blog.title}}<br><span>{{@blog.description}}</span></h1>
+					<h1 class="headingTitle">{{@site.title}}<br><span>{{@site.description}}</span></h1>
 				</div>
 			</section>
 			{{navigation}}
