@@ -194,6 +194,7 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1;
   white-space: pre;
   overflow-x: scroll;
+  width: 100%;
 }
 
 .post-content pre code {
