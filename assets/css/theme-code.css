@@ -28,10 +28,15 @@ body, p, .postExcerpt p, a, a.readMore {
 .post-content h3 {
   font-size: 30px;
 }
+
 body, .postExcerpt p, .post-content p, .post-content li {
   font-family: 'Roboto Slab', serif;
   font-size: 22px;
   line-height: 1.5em;
+}
+
+body {
+    overflow-x: hidden;
 }
 
 a {
@@ -43,6 +48,24 @@ a {
 a:hover {
   color: #558b2f;
 }
+
+
+hr {
+  height: 1px;
+  margin: 1em 0 2.5em;
+  width: 80vw;
+  border-top: 2px solid #eee;
+}
+
+.post-content figcaption {
+  margin: 0 0 0;
+}
+
+.postContent ul li {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 
 h1, h2, h3, h4, h5, h6,
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {

@@ -35,7 +35,7 @@ function(e) {
         var i = {
                 readingTimeTarget: ".eta",
                 wordCountTarget: null,
-                wordsPerMinute: 250,
+                wordsPerMinute: 260,
                 secondsPerImage: 20,
                 round: !0,
                 lang: "en",
