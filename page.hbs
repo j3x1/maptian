@@ -10,19 +10,26 @@
 {{! Everything inside the #post tags pulls data from the post }}
 {{#post}}
 
-<main class="mainContent" role="main">
-  <header class="pageHeader">
-    {{navigation}}
-    <div class="vline"></div>
-  </header>
-  
-  <article class="post {{post_class}}">
-    <h1 class="postTitle" itemprop="headline">{{title}}</h1>
-      <div class="postCover" style="background-image:url('{{img_url feature_image}}')"></div>
+  <main class="mainContent" role="main">
+    <header class="pageHeader">
+      {{navigation}}
+      <div class="vline"></div>
+    </header>
+
+    <article class="post {{post_class}}">
+      {{#if @page.show_title_and_feature_image}}
+        <h1 class="postTitle" itemprop="headline">{{title}}</h1>
+        {{#if feature_image}}
+          <div
+            class="postCover"
+            style="background-image:url('{{img_url feature_image}}')"
+          ></div>
+        {{/if}}
+      {{/if}}
       <section class="post-content postContent">
         {{content}}
       </section>
-  </article>
-</main>
+    </article>
+  </main>
 
 {{/post}}

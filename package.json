@@ -1,35 +1,35 @@
 {
-    "name": "maptian",
-    "description": "Custom blog theme created for Jia Xun and Jia Jin's personal blog",
-    "demo": "https://chaijiaxun.com",
-    "version": "2.0.5",
-    "engines": {
-        "ghost": ">=2.0.0"
-    },
-    "license": "MIT",
-    "screenshots": {
-        "desktop": "assets/screenshot-desktop.jpg",
-        "mobile": "assets/screenshot-mobile.jpg"
-    },
-    "author": {
-        "name": "Chai Jia Xun, Low Jia Jin",
-        "email": "admin@pixelrife.com",
-        "url": "https://www.pixelrife.com"
-    },
-    "gpm": {
-        "type": "theme",
-        "categories": [
-            "Minimal",
-            "Personal Blogs"
-        ]
-    },
-    "keywords": [
-        "ghost",
-        "theme",
-        "ghost-theme"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/j3x1/blog-design.git"
-    }
+  "name": "maptian",
+  "description": "Custom blog theme created for Jia Xun's personal blog",
+  "demo": "https://chaijiaxun.com",
+  "version": "3.0.0",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "license": "MIT",
+  "screenshots": {
+    "desktop": "assets/screenshot-desktop.jpg",
+    "mobile": "assets/screenshot-mobile.jpg"
+  },
+  "author": {
+    "name": "Chai Jia Xun,",
+    "email": "hello@cjx3711.com",
+    "url": "https://www.chaijiaxun.com"
+  },
+  "gpm": {
+    "type": "theme",
+    "categories": [
+      "Minimal",
+      "Personal Blogs"
+    ]
+  },
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/j3x1/maptian"
+  }
 }
