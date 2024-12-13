@@ -237,6 +237,7 @@ nav.navigation-menu a {
 
 .post-content .kg-width-wide .kg-image {
   max-width: 1040px;
+  width: 100%;
 }
 
 .post-content .kg-width-full .kg-image {
