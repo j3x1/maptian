@@ -1,0 +1,6 @@
+{
+  "editor.formatOnSave": false,
+  "[handlebars]": {
+    "editor.formatOnSave": false
+  }
+}

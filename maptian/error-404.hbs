@@ -9,19 +9,30 @@
   <article class="post error-404">
     <section class="post-content postContent">
       <h1>404 - Page Not Found</h1>
-      <script>
-        // Get the current path const currentPath = window.location.pathname; if
-        (currentPath.includes('/tag/')) { const topicPath =
-        currentPath.replace('/tag/', '/blog/topic/'); document.write(` <p>Tags
-        are now called topics.</p> <p>Redirecting you to the new location...</p>
-        <p>If you're not redirected, <a href="${topicPath}">click here</a></p>
-        `); } else if (!currentPath.includes('/blog')) { document.write(`
+
+      {{! Message for tag redirects }}
+      <div class="error-message" id="tag-message" style="display: none;">
+        <p>Tags are now called topics.</p>
+        <p>Redirecting you to the new location...</p>
+        <p>If you're not redirected after 5 seconds,
+          <a href="#" id="topic-link">click here</a></p>
+      </div>
+
+      {{! Message for blog redirects }}
+      <div class="error-message" id="blog-message" style="display: none;">
         <p>This might be because you've followed an old link or typed in a wrong
-        URL.</p> <p>Attempting to redirect you to the blog...</p> <p>If you're
-        not redirected, <a href="/blog${currentPath}">click here</a></p> `); }
-        else { document.write(` <p>This page doesn't exist in the blog.</p>
-        <p>You can return to the <a href="/blog">blog homepage</a>.</p> `); }
-      </script>
+          URL.</p>
+        <p>Attempting to redirect you to the blog...</p>
+        <p>If you're not redirected after 5 seconds,
+          <a href="#" id="blog-link">click here</a></p>
+      </div>
+
+      {{! Message for non-existent blog pages }}
+      <div class="error-message" id="not-found-message" style="display: none;">
+        <p>This page doesn't exist in the blog.</p>
+        <p>You can return to the <a href="/blog">blog homepage</a>.</p>
+      </div>
+
       <noscript>
         <p>This page doesn't exist.</p>
         <p>You can return to the <a href="/blog">blog homepage</a>.</p>
@@ -31,17 +42,47 @@
 </main>
 
 <script>
-  const currentPath = window.location.pathname; if
-  (currentPath.includes('/tag/')) { // Redirect /tag/* to /blog/topic/* const
-  newPath = currentPath.replace('/tag/', '/blog/topic/'); setTimeout(() => {
-  window.location.href = newPath; }, 1500); } else if
-  (!currentPath.includes('/blog')) { // Redirect to /blog/* const newPath =
-  '/blog' + (currentPath.startsWith('/') ? currentPath : '/' + currentPath);
-  setTimeout(() => { window.location.href = newPath; }, 1500); }
+  const currentPath = window.location.pathname;
+  if (currentPath.includes('/tag/')) {
+    // Handle tag redirects
+    const newPath = currentPath.replace('/tag/', '/blog/topic/');
+    document.getElementById('topic-link').setAttribute('href', newPath);
+    document.getElementById('tag-message').style.display = 'block';
+    setTimeout(() => {
+      window.location.href = newPath;
+    }, 3000);
+  } else if (!currentPath.includes('/blog')) {
+    // Handle blog redirects
+    const newPath = '/blog' + (currentPath.startsWith('/') ? currentPath : '/' + currentPath);
+    document.getElementById('blog-link').setAttribute('href', newPath);
+    document.getElementById('blog-message').style.display = 'block';
+    setTimeout(() => {
+      window.location.href = newPath;
+    }, 3000);
+  } else {
+    // Show not found message for blog pages
+    document.getElementById('not-found-message').style.display = 'block';
+  }
 </script>
 
 <style>
-  .error-404 { text-align: center; padding: 50px 20px; } .error-404 h1 {
-  font-size: 2em; margin-bottom: 20px; } .error-404 p { font-size: 1.2em;
-  margin: 10px 0; }
+  .error-404 {
+    text-align: center;
+    padding: 50px 20px;
+  }
+  .error-404 h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  .error-404 p {
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  .error-message {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  .error-message:not([style*="display: none"]) {
+    opacity: 1;
+  }
 </style>
