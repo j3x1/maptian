@@ -1,23 +1,60 @@
 {{!< default}}
-{{! The tag above means - insert everything in this file into the {body} of the default.hbs template }}
 
-{{! The big featured header }}
+{{! The comment above "< default" means - insert everything in this file into
+    the {body} of the default.hbs template, which contains our header/footer. }}
 
+{{! Everything inside the #post tags pulls data from the post }}
+{{#post}}
 
-
-{{! The main content area on the homepage }}
-<div class="mainContent">
-	
-		<header class="pageHeader">
+  <main class="mainContent" role="main">
+    <header class="pageHeader">
 			<section class="heading {{#if @site.cover_image}}" style="background-image: url({{@site.cover_image}}){{else}}no-cover{{/if}}">
 				<div class="headingSub">
-					<h1 class="headingTitle">{{@site.title}}<br><span>{{@site.description}}</span></h1>
+					<h1 class="headingTitle">{{@site.title}}<br><span style="margin-top: 10px;">{{@site.description}}</span></h1>
 				</div>
 			</section>
 			{{navigation}}
 			<div class="vline"></div>
 		</header>
-    {{! The tag below includes the post loop - partials/loop.hbs }}
-    {{> "loop"}}
-</div>
 
+
+    <article class="post {{post_class}}">
+      <section class="post-content postContent">
+        {{content}}
+      </section>
+    </article>
+
+
+    {{!-- Get the latest post --}}
+    {{#get "posts" limit="1" as |latest_post|}}
+      {{#foreach latest_post}}
+        <article class="loopPost {{post_class}} latestPost">
+          <p class="latestMark">Latest post</p>
+          <h2 class="loopPost-title post-title"><a href="{{url}}">{{{title}}}</a></h2>
+          {{#if feature_image}}
+            <div class="postCover" style="background-image:url('{{img_url feature_image}}')">
+              <img class="invisibleImg" src="{{img_url feature_image}}">
+            </div>
+          {{/if}}
+          <div class="postInfo">
+            <span>{{authors}}</span> <span style="text-transform: lowercase">on</span> <span>{{tags}}</span>
+            <span class="post-date" datetime="{{date format='YYYY-MM-DD'}}">| {{date format="DD MMMM YYYY"}}</span>
+          </div>
+          <div class="postExcerpt">
+            <p>{{excerpt words="25"}} ...</p>
+            <div class="bottomContainer">
+              <a class="readMore" title="{{title}}" href="{{url}}">
+                <span>Continue reading </span><span>&#10142;</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      {{/foreach}}
+    {{/get}}
+
+    <div style="text-align: center; margin-top: 42px;">
+      <a href="/blog" class="readMore">View all posts</a>
+    </div>
+  </main>
+
+{{/post}}

@@ -1,7 +1,10 @@
 <nav class="navigation-menu noselect">
   <a class="logo" href="/"></a>
   {{#foreach navigation}}
-    <a class="link nav-{{slug}}" href="{{url absolute="true"}}">{{#if current}}<i class="fa fa-caret-right" aria-hidden="true"></i>{{/if}} {{label}}</a>
+    <a class="link nav-{{slug}}" href="{{url absolute="true"}}">{{#if
+        current
+      }}<i class="fa fa-caret-right" aria-hidden="true"></i>{{/if}}
+      {{label}}</a>
   {{/foreach}}
-  <hr/>
+  <hr class="hline" />
 </nav>
