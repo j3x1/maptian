@@ -9,9 +9,9 @@ if ! docker volume inspect ghost_content > /dev/null 2>&1; then
 fi
 
 docker run -d \
-  -e url=http://chaijiaxun.com \
+  -e url=https://chaijiaxun.com \
   -e NODE_ENV=production \
   -v ghost_content:/var/lib/ghost/content \
   -p 3711:3711 \
-  --name ghost-blog-prod \
+  --name ghost-blog \
   ghost:latest
