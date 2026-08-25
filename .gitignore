@@ -1,5 +1,14 @@
 .DS_Store
+node_modules/
 
+# Build output. The theme is deployed with rsync, not a zip.
 *.zip
 
-node_modules/
+# Credentials. Only *.example files belong in this repo.
+# config/ holds templates with placeholder values; the filled-in versions live
+# on the server at /root/ghost-config/ and must never be committed.
+.env
+*.env
+!*.env.example
+config.production.json
+!config.production.json.example

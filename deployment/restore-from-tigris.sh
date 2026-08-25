@@ -1,40 +1,66 @@
 #!/bin/bash
 set -euo pipefail
 
-# Restores the Ghost blog from a Tigris backup made by backup-to-tigris.sh.
+# Restores a Ghost blog from a Tigris backup made by backup-to-tigris.sh.
 #
-#   ./restore-from-tigris.sh --list                 # what is in the bucket
-#   ./restore-from-tigris.sh daily/2026-08-26       # restore that snapshot
-#   ./restore-from-tigris.sh weekly/2026-08-24
-#   ./restore-from-tigris.sh daily/2026-08-26 --db-only
+#   ./restore-from-tigris.sh chaijiaxun --list
+#   ./restore-from-tigris.sh chaijiaxun weekly/2026-08-24
+#   ./restore-from-tigris.sh travellingdevman daily/2026-08-26 --db-only
 #
 # A restore is two halves, because a backup is two halves:
 #
 #   1. the snapshot tarball  -> database, settings, themes, redirects
 #   2. the image mirror      -> content/images
 #
-# The images are pulled with `rclone copy`, which only fetches what is missing
+# Images are pulled with `rclone copy`, which only fetches what is missing
 # locally. On a same-box restore that is usually nothing; on a fresh server it
-# is the full ~317 MB.
+# is the whole mirror.
 #
 # Ghost is stopped for the duration and started again at the end.
 
-ENV_FILE=${ENV_FILE:-/root/ghost-config/backup.env}
-VOLUME_DATA=${VOLUME_DATA:-/var/lib/docker/volumes/ghost_content/_data}
-CONTAINER=${CONTAINER:-ghost-blog}
+usage() {
+  cat >&2 <<'EOF'
+Usage: restore-from-tigris.sh <site> [--list | <snapshot> [--db-only]]
+
+  <site>       config suffix, e.g. chaijiaxun or travellingdevman
+  --list       show what is in the bucket for that site
+  <snapshot>   daily/YYYY-MM-DD or weekly/YYYY-MM-DD
+  --db-only    restore the tarball but do not pull the image mirror
+EOF
+  exit "${1:-1}"
+}
+
+SITE=${1:-}
+[ -n "$SITE" ] || usage 1
+case "$SITE" in -h|--help) usage 0 ;; esac
+[[ "$SITE" =~ ^[a-z0-9][a-z0-9-]*$ ]] || { echo "Invalid site name: $SITE" >&2; usage 1; }
+
+CONFIG_DIR=${CONFIG_DIR:-/root/ghost-config}
+SHARED_ENV="$CONFIG_DIR/backup.env"
+SITE_ENV="$CONFIG_DIR/backup.$SITE.env"
 REMOTE=tigris
 
-log()  { echo "[$(date -Is)] $*"; }
-fail() { echo "[$(date -Is)] ERROR: $*" >&2; exit 1; }
+log()  { echo "[$(date -Is)] [$SITE] $*"; }
+fail() { echo "[$(date -Is)] [$SITE] ERROR: $*" >&2; exit 1; }
 
-[ -f "$ENV_FILE" ] || fail "config not found at $ENV_FILE"
-set -a; . "$ENV_FILE"; set +a
+[ -f "$SHARED_ENV" ] || fail "config not found at $SHARED_ENV"
+[ -f "$SITE_ENV" ]   || fail "site config not found at $SITE_ENV"
+set -a
+# shellcheck disable=SC1090
+. "$SHARED_ENV"
+# shellcheck disable=SC1090
+. "$SITE_ENV"
+set +a
 
 : "${BACKUP_S3_BUCKET:?BACKUP_S3_BUCKET not set}"
 : "${BACKUP_S3_ACCESS_KEY_ID:?BACKUP_S3_ACCESS_KEY_ID not set}"
 : "${BACKUP_S3_SECRET_ACCESS_KEY:?BACKUP_S3_SECRET_ACCESS_KEY not set}"
+: "${GHOST_VOLUME:?GHOST_VOLUME not set in $SITE_ENV}"
 
-PREFIX=${BACKUP_S3_PREFIX-ghost/}
+VOLUME_DATA=${GHOST_VOLUME_DATA:-/var/lib/docker/volumes/$GHOST_VOLUME/_data}
+CONTAINER=${GHOST_CONTAINER:-}
+
+PREFIX=${BACKUP_S3_PREFIX-$SITE/}
 PREFIX=${PREFIX#/}
 [ -n "$PREFIX" ] && PREFIX="${PREFIX%/}/"
 
@@ -48,23 +74,28 @@ export RCLONE_S3_DISABLE_CHECKSUM=true
 
 BUCKET="${REMOTE}:${BACKUP_S3_BUCKET}"
 
-if [ "${1:-}" = "--list" ] || [ -z "${1:-}" ]; then
+if [ "${2:-}" = "--list" ] || [ -z "${2:-}" ]; then
+  echo "Site:   $SITE"
+  echo "Bucket: $BUCKET/${PREFIX}"
+  echo
   echo "Weekly snapshots (kept forever):"
-  rclone lsl "$BUCKET/${PREFIX}weekly/" 2>/dev/null | awk '{printf "  weekly/%s  %s\n", substr($4,1,10), $1}' | sort -r || echo "  (none)"
+  rclone lsf "$BUCKET/${PREFIX}weekly/" 2>/dev/null \
+    | sed -n 's/^\(.*\)\.tar\.gz$/  weekly\/\1/p' | sort -r || echo "  (none)"
   echo
   echo "Daily snapshots:"
-  rclone lsl "$BUCKET/${PREFIX}daily/" 2>/dev/null | awk '{printf "  daily/%s  %s\n", substr($4,1,10), $1}' | sort -r || echo "  (none)"
+  rclone lsf "$BUCKET/${PREFIX}daily/" 2>/dev/null \
+    | sed -n 's/^\(.*\)\.tar\.gz$/  daily\/\1/p' | sort -r || echo "  (none)"
   echo
-  images=$(rclone size "$BUCKET/${PREFIX}images" 2>/dev/null | tail -2 | tr '\n' ' ' || true)
-  echo "Image mirror: ${images:-(none)}"
-  [ "${1:-}" = "--list" ] && exit 0
+  echo "Image mirror:"
+  rclone size "$BUCKET/${PREFIX}images" 2>/dev/null | sed 's/^/  /' || echo "  (none)"
+  [ "${2:-}" = "--list" ] && exit 0
   echo
   fail "no snapshot given. Pass one of the keys above, e.g. weekly/2026-08-24"
 fi
 
-SNAPSHOT=$1
+SNAPSHOT=$2
 DB_ONLY=false
-[ "${2:-}" = "--db-only" ] && DB_ONLY=true
+[ "${3:-}" = "--db-only" ] && DB_ONLY=true
 
 case "$SNAPSHOT" in
   daily/*|weekly/*) ;;
@@ -75,7 +106,10 @@ KEY="${PREFIX}${SNAPSHOT}.tar.gz"
 rclone lsf "$BUCKET/$KEY" >/dev/null 2>&1 || fail "$KEY not found in the bucket"
 
 echo
-echo "  Restore $SNAPSHOT into $VOLUME_DATA"
+echo "  Site:     $SITE"
+echo "  Snapshot: $SNAPSHOT"
+echo "  Into:     $VOLUME_DATA"
+echo
 echo "  This REPLACES the live database, settings and themes."
 $DB_ONLY && echo "  --db-only: the image mirror will NOT be pulled." \
          || echo "  Missing images will be pulled from the mirror."
@@ -94,19 +128,19 @@ tar xzf "$WORK/snapshot.tar.gz" -C "$WORK/stage"
 
 [ -f "$WORK/stage/data/ghost.db" ] || fail "snapshot has no data/ghost.db -- refusing to restore"
 
-log "verifying the snapshot database before touching anything live"
+log "verifying the downloaded database before touching anything live"
 result=$(sqlite3 "$WORK/stage/data/ghost.db" "PRAGMA integrity_check")
 [ "$result" = "ok" ] || fail "downloaded database FAILED integrity check: $result"
 
 was_running=false
-if [ "$(docker inspect -f '{{.State.Running}}' "$CONTAINER" 2>/dev/null)" = "true" ]; then
+if [ -n "$CONTAINER" ] && [ "$(docker inspect -f '{{.State.Running}}' "$CONTAINER" 2>/dev/null)" = "true" ]; then
   was_running=true
   log "stopping $CONTAINER"
   docker stop "$CONTAINER" >/dev/null
 fi
 
 # Keep what we are about to overwrite, in case this restore is itself a mistake.
-SAFETY="/root/backups/pre-restore-$(date -u +%Y%m%d_%H%M%S)"
+SAFETY="/root/backups/$SITE/pre-restore-$(date -u +%Y%m%d_%H%M%S)"
 mkdir -p "$SAFETY"
 log "saving current data/ settings/ themes/ to $SAFETY"
 for dir in data settings themes; do

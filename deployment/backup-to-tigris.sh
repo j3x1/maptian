@@ -85,7 +85,7 @@ fail() { echo "[$(date -Is)] [$SITE] ERROR: $*" >&2; exit 1; }
 # Refuse to read a credentials file the whole box can see.
 require_private() {
   local f=$1 perms
-  [ -f "$f" ] || fail "config not found at $f (see backup.env.example)"
+  [ -f "$f" ] || fail "config not found at $f (see config/backup.env.example in the repo)"
   perms=$(stat -c '%a' "$f")
   case "$perms" in
     600|400) ;;
@@ -274,21 +274,25 @@ fi
 
 # --- mirror the images -----------------------------------------------------
 #
-# Upload-only and never deleting. Ghost image paths are immutable, so an image
-# that vanishes locally is far more likely to be an accident than an intended
-# deletion -- and the whole point of this half is that every image ever
-# published stays recoverable. rclone skips anything already present, so
-# steady-state this transfers only genuinely new files.
+# `copy`, never `sync`: sync would mirror local deletions up to the bucket, and
+# an image that vanishes locally is far more likely to be an accident than an
+# intended deletion. The whole point of this half is that every image ever
+# published stays recoverable, so this direction is upload-only.
+#
+# Deliberately NOT --immutable. That flag ABORTS the entire run if any file's
+# size or modtime differs from the copy in the bucket, which would turn one odd
+# file into a nightly backup failure. Plain copy skips files that already match
+# and re-uploads only genuinely differing ones, so it self-heals a truncated
+# earlier upload instead of failing forever.
 
 if [ ! -d "$VOLUME_DATA/images" ]; then
   log "no images/ directory; skipping image mirror"
 elif [ "$MODE" = dryrun ]; then
   log "DRY RUN: would sync images/"
-  rclone copy "$VOLUME_DATA/images" "$BUCKET/${PREFIX}images" --immutable --dry-run 2>&1 | tail -5 || true
+  rclone copy "$VOLUME_DATA/images" "$BUCKET/${PREFIX}images" --dry-run 2>&1 | tail -5 || true
 else
   log "mirroring images (upload-only, never deletes)"
   rclone copy "$VOLUME_DATA/images" "$BUCKET/${PREFIX}images" \
-    --immutable \
     --transfers 4 \
     --s3-no-check-bucket \
     --stats-one-line --stats 0 || fail "image mirror failed"
