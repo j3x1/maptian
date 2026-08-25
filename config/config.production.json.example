@@ -1,0 +1,33 @@
+{
+  "url": "https://example.com",
+  "server": {
+    "port": 3711,
+    "host": "::"
+  },
+  "database": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "/var/lib/ghost/content/data/ghost.db"
+    }
+  },
+  "mail": {
+    "transport": "SMTP",
+    "from": "\"Your Name\" <noreply@example.com>",
+    "options": {
+      "host": "smtp.resend.com",
+      "port": 465,
+      "secureConnection": true,
+      "auth": {
+        "user": "resend",
+        "pass": "REPLACE_WITH_RESEND_API_KEY"
+      }
+    }
+  },
+  "logging": {
+    "transports": ["file", "stdout"]
+  },
+  "process": "systemd",
+  "paths": {
+    "contentPath": "/var/lib/ghost/content"
+  }
+}

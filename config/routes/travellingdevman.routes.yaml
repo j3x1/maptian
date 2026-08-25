@@ -1,0 +1,14 @@
+# -> travellingdevman_content volume: settings/routes.yaml
+#
+# Stock Ghost layout: the collection is at the root.
+routes:
+
+collections:
+  /:
+    permalink: /{slug}/
+    template:
+      - index
+
+taxonomies:
+  tag: /tag/{slug}/
+  author: /author/{slug}/

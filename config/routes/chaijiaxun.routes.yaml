@@ -1,0 +1,18 @@
+# -> ghost_content volume: settings/routes.yaml
+#
+# The homepage is a static page rendered by the theme's index.hbs; the post
+# collection is pushed under /blog/. Editing this in Ghost admin overwrites the
+# copy in the volume, so keep this file in sync by hand.
+routes:
+  /:
+    data: page.home
+    template: index
+
+collections:
+  /blog/:
+    permalink: /blog/{slug}/
+    template: page-blog
+
+taxonomies:
+  tag: /blog/topic/{slug}/
+  author: /blog/author/{slug}/
