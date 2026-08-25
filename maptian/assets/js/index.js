@@ -97,9 +97,8 @@ function(e) {
 }(jQuery), $(document).ready(function() {
     
 });
-var $latest = $("#posts");
-"/" !== location.pathname && $latest.load("/ #posts li"),
-    function(e, t) {
+
+!function(e, t) {
         "use strict";
         var i = e(document);
         i.ready(function() {

@@ -2,9 +2,13 @@
   "name": "maptian",
   "description": "Custom blog theme created for Jia Xun's personal blog",
   "demo": "https://chaijiaxun.com",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "engines": {
     "ghost": ">=5.0.0"
+  },
+  "config": {
+    "posts_per_page": 5,
+    "card_assets": true
   },
   "license": "MIT",
   "screenshots": {
@@ -12,7 +16,7 @@
     "mobile": "assets/screenshot-mobile.jpg"
   },
   "author": {
-    "name": "Chai Jia Xun,",
+    "name": "Chai Jia Xun",
     "email": "hello@cjx3711.com",
     "url": "https://www.chaijiaxun.com"
   },

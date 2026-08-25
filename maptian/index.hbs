@@ -26,7 +26,7 @@
 
 
     {{!-- Get the latest post --}}
-    {{#get "posts" limit="1" as |latest_post|}}
+    {{#get "posts" limit="1" include="authors,tags" as |latest_post|}}
       {{#foreach latest_post}}
         <article class="loopPost {{post_class}} latestPost">
           <p class="latestMark">Latest post</p>
