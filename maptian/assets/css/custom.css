@@ -136,10 +136,10 @@ q:before {
 }
 
 mark {
-    background-color: #ff9;
-    color: #000;
-    font-style: italic;
-    font-weight: 700
+    background-color: var(--select-bg, #c5e1a5);
+    color: var(--select-fg, #1e2320);
+    padding: 0 3px;
+    border-radius: 2px;
 }
 
 del {

@@ -29,7 +29,7 @@ header.pageHeader .vline {
   height: 290px;
   top: 3px;
   bottom: -1px;
-  left: -25px;
+  left: calc(var(--rail-x) * -1);
   border-left: 1px solid;
 }
 
@@ -89,17 +89,18 @@ nav.navigation-menu a {
   justify-content: space-between;
 }
 
+/* Layout only -- colours live in theme-code.css so there is one source of truth. */
 .postTags a {
-  color: #fff;
+  display: inline-block;
   padding: 5px 10px;
-  margin: 0 6px 0 0;
+  margin: 0 6px 6px 0;
   text-transform: uppercase;
   font-size: 15px;
+  letter-spacing: 0.02em;
   border-radius: 5px;
-  background: #999999;
   font-family: "Roboto Condensed", serif;
-  -webkit-transition: background 120ms;
-  transition: background 120ms;
+  -webkit-transition: background 120ms, color 120ms, border-color 120ms;
+  transition: background 120ms, color 120ms, border-color 120ms;
 }
 
 .postShare-wrap {
@@ -180,10 +181,16 @@ nav.navigation-menu a {
   .authorContainer .vline {
     position: absolute;
     top: 0;
-    right: 40px;
+    /* .authorContainer is left:-220px width:220px, so its right edge sits on the
+       content edge. Offsetting by --rail-x puts this rail on exactly the same
+       x as the nav rail above it. */
+    /* -1px because this rail is positioned from its RIGHT edge while the nav
+       rail is positioned from its LEFT edge; the 1px border sits on the
+       inside. Without this the two rails land 1px apart. */
+    right: calc(var(--rail-x) - 1px);
     bottom: 0;
     border-left: 1px solid;
-    border-left-color: #fff;
+    border-left-color: var(--rail);
   }
 
   .authorContainer hr {

@@ -1,22 +1,53 @@
+/* ============================================================
+   PALETTE
+   Green-tinted dark neutrals. Change these, not the rules below.
+   ============================================================ */
+:root {
+  --bg:          #2a2f28; /* page background */
+  --bg-heading:  #232823; /* hero / heading band */
+  --bg-sunken:   #1e2320; /* code blocks, logo chip */
+  --bg-raised:   #343a31; /* latest-post card, footer */
+  --bg-chip:     #3e463c; /* tag pills */
+
+  --border:      #4e564a;
+  --border-soft: #3e463c;
+
+  --text:        #e2e6df;
+  --text-strong: #f4f7f0;
+  --text-muted:  #a9b3a4;
+
+  --accent:      #aed581; /* links / hover on dark: 8.2:1 on --bg */
+  --accent-deep: #7cb342; /* solid fills, progress bar */
+  --accent-ink:  #1e2320; /* text sitting on an accent fill */
+
+  --select-bg:   #c5e1a5;
+  --select-fg:   #1e2320;
+
+  /* The vertical rail down the left gutter. --rail-x is read by BOTH the nav
+     rail and the author rail so they can never drift apart again. */
+  --rail:        #7d8877;
+  --rail-x:      25px;
+}
+
 /* General Theme */
 
 body, .blogWrapper, .progressbarWrapper, .topbar {
-  background: #333333;
+  background: var(--bg);
 }
 
 /* Basic colouring */
 body, p, .postExcerpt p, a, a.readMore {
   font-family: 'Roboto Slab', serif;
-  color: #e0e0e0;
+  color: var(--text);
 }
 
 .post-content blockquote {
-  color: #AAA;
+  color: var(--text-muted);
 }
 
 .post-content blockquote:before {
   width: 4px;
-  background: #AAA;
+  background: var(--text-muted);
 }
 
 .post-content h1 {
@@ -40,13 +71,13 @@ body {
 }
 
 a {
-  color: #e0e0e0;
+  color: var(--text);
   -webkit-transition: all .15s ease-in-out;
   transition: all .15s ease-in-out;
 }
 
 a:hover {
-  color: #558b2f;
+  color: var(--accent);
 }
 
 
@@ -54,7 +85,7 @@ hr {
   height: 1px;
   margin: 1em 0 2.5em;
   width: 80vw;
-  border-top: 2px solid #eee;
+  border-top: 2px solid var(--border);
 }
 
 .post-content figcaption {
@@ -70,25 +101,29 @@ hr {
 h1, h2, h3, h4, h5, h6,
 .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
   font-family: 'Roboto Condensed', serif;
-  color: #fff;
+  color: var(--text-strong);
   margin-bottom: 20px;
 }
 
+/* Selection must set BOTH background and colour, otherwise the light
+   body text stays light and the highlight is unreadable (was 1.07:1). */
 *::selection {
-  background: #DCEDC8; /* WebKit/Blink Browsers */
+  background: var(--select-bg);
+  color: var(--select-fg);
 }
 *::-moz-selection {
-  background: #DCEDC8; /* Gecko Browsers */
+  background: var(--select-bg);
+  color: var(--select-fg);
 }
 
 .heading, .homeNav, .topbar {
-    border-bottom: 1px solid #888;
+    border-bottom: 1px solid var(--border);
 }
 
 .progressbar {
     width: 0;
     height: 4px;
-    background: #558b2f;
+    background: var(--accent-deep);
     max-width: 1440px
 }
 
@@ -112,13 +147,13 @@ h1, h2, h3, h4, h5, h6,
 /* Homepage Navbar Overrides */
 
 .navLinks-wrap .navLink a {
-    border-bottom: 0 solid #558b2f;
+    border-bottom: 0 solid var(--accent);
     font-size: 22px;
     margin-right: 20px;
 }
 
 .navLinks-wrap .navLink a:hover {
-    border-bottom: 5px solid #558b2f;
+    border-bottom: 5px solid var(--accent);
     -webkit-transition: all 125ms ease-in-out;
     transition: all 125ms ease-in-out
 }
@@ -142,16 +177,16 @@ h1, h2, h3, h4, h5, h6,
   font-family: 'Roboto Condensed', sans-serif;
   font-weight: 300;
   font-size: 20px;
-  color: #fff;
+  color: var(--text-strong);
 }
 
 .heading {
-  background: #222222;
+  background: var(--bg-heading);
   background-size: cover;
 }
 
 .headingTitle {
-  color: #EEEEEE;
+  color: var(--text-strong);
 }
 
 .headingTitle span {
@@ -159,8 +194,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 .latestPost {
-  background: #444444;
-  border: 1px solid #888!important;
+  background: var(--bg-raised);
+  border: 1px solid var(--border) !important;
   border-radius: 3px;
 }
 
@@ -171,32 +206,33 @@ h1, h2, h3, h4, h5, h6,
     padding: 15px 21px;
     line-height: initial;
     background: 0 0;
-    color: #558b2f;
-    border: 1px solid #EEE;
+    color: var(--accent);
+    border: 1px solid var(--border);
     font-weight: 500;
     font-size: .925rem;
     margin: 21.03px 0 0
 }
 
 .readMore:hover {
-  background: #558b2f;
-  color: #fff;
+  background: var(--accent-deep);
+  color: var(--accent-ink);
+  border-color: var(--accent-deep);
 }
 
 /* Post content and page overrides */
 .post-content a {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid var(--border);
 }
 
 .post-content a:hover {
-    border-bottom: 1px solid #558b2f;
+    border-bottom: 1px solid var(--accent);
     -webkit-transition: all .2s ease-in-out;
     transition: all .2s ease-in-out
 }
 
 .post-content code {
-  background-color: #222;
-  border: #E3EDF3 1px solid;
+  background-color: var(--bg-sunken);
+  border: 1px solid var(--border-soft);
   border-radius: 3px;
   padding: 0 5px;
   font-family: Inconsolata, monospace, sans-serif;
@@ -205,11 +241,11 @@ h1, h2, h3, h4, h5, h6,
 
 .post-content pre {
   font-family: Inconsolata, monospace, sans-serif;
-  background-color: #222;
+  background-color: var(--bg-sunken);
   margin-left: auto;
   margin-right: auto;
   box-sizing: border-box;
-  border: #E3EDF3 1px solid;
+  border: 1px solid var(--border-soft);
   border-radius: 3px;
   padding: 0 5px;
   margin: 0 0 1.75em 0;
@@ -242,7 +278,7 @@ h1.postTitle {
   font-family: 'anonymous_proregular';
   font-size: 63px;
   font-weight: normal;
-  color: #fff;
+  color: var(--text-strong);
   margin: 0 0 0.45em 0;
 }
 
@@ -283,11 +319,11 @@ h1.postTitle {
 }
 
 a.logo {
-  background: #111;
+  background: var(--bg-sunken);
   width: 70px;
   padding: 8px 10px;
   border-radius: 10px;
-  border: #999 2px solid;
+  border: 2px solid var(--border);
   margin-bottom: 10px;
   transition: border-color 100ms linear;
   text-align: left;
@@ -301,15 +337,15 @@ a.logo::after {
   content: ">_";
   font-size: 45px;
   cursor: pointer;
-  color: #fff;
+  color: var(--text-strong);
   transition: color 100ms linear;
 }
 
 a.logo:hover::after {
-  color: #558b2f;
+  color: var(--accent);
 }
 a.logo:hover {
-  border-color: #558b2f;
+  border-color: var(--accent);
 }
 
 .main-nav a.logo {
@@ -326,7 +362,7 @@ a.logo:hover {
 .blink-cursor {
   animation: blink-animation 2s steps(2, start) infinite;
   -webkit-animation: blink-animation 2s steps(2, start) infinite;
-  background: #e0e0e0;
+  background: var(--text);
 }
 @keyframes blink-animation {
   to {
@@ -340,11 +376,11 @@ a.logo:hover {
 }
 
 .lastfooter {
-  background: #444;
+  background: var(--bg-raised);
 }
 
 .lastfooterSubcontainer>* {
-    color: #AAA;
+    color: var(--text-muted);
 }
 
 
@@ -353,16 +389,18 @@ a.logo:hover {
 *************************/
 
 header.pageHeader .vline {
-  border-left-color: #e0e0e0;
+  border-left-color: var(--rail);
 }
 
 .postTags a {
-  color: #fff;
-  background: #999999;
+  color: #dce5d5;
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
   font-family: 'Roboto Condensed', serif;
 }
 
 .postTags a:hover {
-    background: #AED581;
-    color: #558b2f;
+    background: var(--accent);
+    color: var(--accent-ink);
+    border-color: var(--accent);
 }
