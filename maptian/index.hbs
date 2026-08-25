@@ -17,14 +17,6 @@
 			<div class="vline"></div>
 		</header>
 
-
-    <article class="post {{post_class}}">
-      <section class="post-content postContent">
-        {{content}}
-      </section>
-    </article>
-
-
     {{!-- Get the latest post --}}
     {{#get "posts" limit="1" include="authors,tags" as |latest_post|}}
       {{#foreach latest_post}}
@@ -52,9 +44,15 @@
       {{/foreach}}
     {{/get}}
 
-    <div style="text-align: center; margin-top: 42px;">
+    <div class="viewAllPosts">
       <a href="/blog" class="readMore">View all posts</a>
     </div>
+
+    <article class="post {{post_class}} homeIntro">
+      <section class="post-content postContent">
+        {{content}}
+      </section>
+    </article>
   </main>
 
 {{/post}}

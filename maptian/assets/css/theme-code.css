@@ -3,14 +3,14 @@
    Green-tinted dark neutrals. Change these, not the rules below.
    ============================================================ */
 :root {
-  --bg:          #2a2f28; /* page background */
-  --bg-heading:  #232823; /* hero / heading band */
-  --bg-sunken:   #1e2320; /* code blocks, logo chip */
-  --bg-raised:   #343a31; /* latest-post card, footer */
-  --bg-chip:     #3e463c; /* tag pills */
+  --bg:          #20241e; /* page background */
+  --bg-heading:  #191d18; /* hero / heading band */
+  --bg-sunken:   #151814; /* code blocks, logo chip */
+  --bg-raised:   #2a2f28; /* latest-post card, footer */
+  --bg-chip:     #333a31; /* tag pills, social buttons */
 
-  --border:      #4e564a;
-  --border-soft: #3e463c;
+  --border:      #444c40;
+  --border-soft: #333a31;
 
   --text:        #e2e6df;
   --text-strong: #f4f7f0;
@@ -18,10 +18,10 @@
 
   --accent:      #aed581; /* links / hover on dark: 8.2:1 on --bg */
   --accent-deep: #7cb342; /* solid fills, progress bar */
-  --accent-ink:  #1e2320; /* text sitting on an accent fill */
+  --accent-ink:  #151814; /* text sitting on an accent fill */
 
   --select-bg:   #c5e1a5;
-  --select-fg:   #1e2320;
+  --select-fg:   #151814;
 
   /* The vertical rail down the left gutter. --rail-x is read by BOTH the nav
      rail and the author rail so they can never drift apart again. */
@@ -403,4 +403,79 @@ header.pageHeader .vline {
     background: var(--accent);
     color: var(--accent-ink);
     border-color: var(--accent);
+}
+
+/************************
+     FOOTER SOCIAL BUTTONS
+*************************/
+
+/* custom.css ships these as near-white circles with grey glyphs (#bbb on #eee,
+   about 1.9:1), which reads as washed out against a dark footer. Restyle them
+   to match the tag pills: recessed chip, muted glyph, accent on hover. */
+.connect {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.lastfooterSocial {
+  height: 34px;
+  width: 34px;
+  line-height: 32px;
+  text-align: center;
+  background: var(--bg-chip);
+  border: 1px solid var(--border);
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.lastfooterSocial i {
+  color: var(--text-muted);
+  line-height: 32px;
+  font-size: 16px;
+  transition: color 150ms ease;
+}
+
+.lastfooterSocial:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.lastfooterSocial:hover i {
+  color: var(--accent-ink);
+}
+
+.lastfooterSocial:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* The .connect flex gap handles spacing now; custom.css positions these two
+   with nth-child margins that assume exactly three buttons and break as soon
+   as another one is added. */
+.lastfooterSocial:nth-child(2),
+.lastfooterSocial:nth-child(3) {
+  margin: 0;
+}
+
+
+/************************
+     HOMEPAGE LAYOUT
+*************************/
+
+/* The latest post now sits directly under the hero, ahead of the page body. */
+.latestPost {
+  margin-top: 28px;
+}
+
+.viewAllPosts {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.homeIntro {
+  margin-top: 56px;
+  padding-top: 40px;
+  border-top: 1px solid var(--border-soft);
 }
