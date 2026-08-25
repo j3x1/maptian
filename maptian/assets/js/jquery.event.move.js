@@ -571,7 +571,9 @@
 	// object, if they are not already listed. But only do the ones we
 	// really need. IE7/8 do not have Array#indexOf(), but nor do they
 	// have touch events, so let's assume we can ignore them.
-	if (typeof Array.prototype.indexOf === 'function') {
+	// jQuery 3 removed jQuery.event.props and exposes native event properties
+	// directly, so this copying is both impossible and unnecessary there.
+	if (typeof Array.prototype.indexOf === 'function' && jQuery.event.props) {
 		(function(jQuery, undefined){
 			var props = ["changedTouches", "targetTouches"],
 			    l = props.length;

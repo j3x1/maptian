@@ -61,6 +61,8 @@ the {body} of the default.hbs template, which contains our header/footer. }}
             class="postShare fb"
             title="{{{title}}}"
             target="_blank"
+            rel="noopener"
+            aria-label="Share on Facebook"
             href="https://www.facebook.com/sharer/sharer.php?u={{url
               absolute="true"
             }}"
@@ -70,11 +72,22 @@ the {body} of the default.hbs template, which contains our header/footer. }}
             class="postShare twitter"
             title="{{{title}}}"
             target="_blank"
-            href="https://twitter.com/intent/tweet?text={{encode
+            rel="noopener"
+            aria-label="Share on X"
+            href="https://x.com/intent/tweet?text={{encode
               title
             }}&amp;url={{url absolute="true"}}"
-            onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;"
-          ><i class="icon fa fa-twitter"></i></a>
+            onclick="window.open(this.href, 'x-share', 'width=550,height=235');return false;"
+          ><svg
+              class="icon"
+              width="1em"
+              height="1em"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              aria-hidden="true"
+            ><path
+                d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.46l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.49 3.24H4.3z"
+              /></svg></a>
         </div>
       </div>
 
@@ -104,26 +117,28 @@ the {body} of the default.hbs template, which contains our header/footer. }}
       </section>
     {{/primary_author}}
 
-    <!-- HERE GOES YOUR DISQUSS CODE -->
+    {{! Disqus comments.
+        Do not let a formatter reflow this block -- it was previously broken by
+        exactly that: a trailing "// ..." comment got wrapped onto the next line
+        and the remainder became executable code, which threw a SyntaxError and
+        silently killed comments on every post. Keep every // comment on its
+        own complete line. }}
     <div id="disqus_thread"></div>
     <script>
-
-      /** * RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION
-      BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS. * LEARN WHY
-      DEFINING THESE VARIABLES IS IMPORTANT:
-      https://disqus.com/admin/universalcode/#configuration-variables*/ var
-      disqus_config = function () { this.page.url = '{{url absolute="true"}}';
-      // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "ghost-{{comment_id}}"; // Replace PAGE_IDENTIFIER
-      with your page's unique identifier variable }; (function() { // DON'T EDIT
-      BELOW THIS LINE var d = document, s = d.createElement('script'); s.src =
-      'https://chaijiaxun.disqus.com/embed.js'; s.setAttribute('data-timestamp',
-      +new Date()); (d.head || d.body).appendChild(s); })();
+      var disqus_config = function () {
+        this.page.url = '{{url absolute="true"}}';
+        this.page.identifier = 'ghost-{{comment_id}}';
+      };
+      (function () {
+        var d = document;
+        var s = d.createElement('script');
+        s.src = 'https://chaijiaxun.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
     </script>
     <noscript>Please enable JavaScript to view the
       <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-    <!-- HERE GOES YOUR DISQUSS CODE -->
   </main>
 
 {{/post}}
